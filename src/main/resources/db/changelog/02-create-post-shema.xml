@@ -1,5 +1,5 @@
 <!--CREATE TABLE `post` (-->
-<!--        `id` int(10) unsigned NOT NULL AUTO_INCREMENT,-->
+<!--        `id` int(10) unsigned NOT NULL Post_INCREMENT,-->
 <!--        `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,-->
 <!--        `description` text COLLATE utf8mb4_unicode_ci NOT NULL,-->
 <!--        `text` text COLLATE utf8mb4_unicode_ci NOT NULL,-->
@@ -10,7 +10,7 @@
 <!--        `updated_at` timestamp NULL DEFAULT NULL,-->
 <!--        PRIMARY KEY (`id`),-->
 <!--        KEY `post_ens_author_foreign` (`author`)-->
-<!--        ) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;-->
+<!--        ) ENGINE=InnoDB Post_INCREMENT=41 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;-->
 <databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">

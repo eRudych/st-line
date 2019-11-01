@@ -1,12 +1,12 @@
 <!--CREATE TABLE `messages` (-->
-<!--        `id` int(10) unsigned NOT NULL AUTO_INCREMENT,-->
+<!--        `id` int(10) unsigned NOT NULL Post_INCREMENT,-->
 <!--        `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,-->
 <!--        `message` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,-->
 <!--        `phone` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,-->
 <!--        `created_at` timestamp NULL DEFAULT NULL,-->
 <!--        `updated_at` timestamp NULL DEFAULT NULL,-->
 <!--        PRIMARY KEY (`id`)-->
-<!--        ) ENGINE=InnoDB AUTO_INCREMENT=117 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;-->
+<!--        ) ENGINE=InnoDB Post_INCREMENT=117 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;-->
 <databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">

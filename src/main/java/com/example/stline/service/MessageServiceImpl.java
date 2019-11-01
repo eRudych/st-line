@@ -1,8 +1,11 @@
 package com.example.stline.service;
 
 import com.example.stline.dto.MessageDTO;
+import com.example.stline.entity.Message;
 import com.example.stline.factory.service.ServiceType;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class MessageServiceImpl implements BaseService {
@@ -11,8 +14,9 @@ public class MessageServiceImpl implements BaseService {
         return ServiceType.MESSAGE;
     }
 
-    @Override
-    public MessageDTO send(MessageDTO messageDTO){
+    public MessageDTO send(Message message){
         return null;
     }
+    public boolean remove(long id){return false;}
+    public List getAll(){return null;}
 }

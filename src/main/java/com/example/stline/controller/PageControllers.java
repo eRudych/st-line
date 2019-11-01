@@ -1,7 +1,5 @@
-package com.example.stline.controller.other;
+package com.example.stline.controller;
 
-import com.example.stline.controller.BaseController;
-import com.example.stline.factory.controller.ControllerType;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,7 +12,7 @@ import java.util.Map;
 @Controller
 @RequestMapping(value = "st-line/page/{pageName}")
 @Slf4j
-public class PageControllers implements BaseController {
+public class PageControllers {
 
     private final Map<String,String> mapping;
 
@@ -23,11 +21,6 @@ public class PageControllers implements BaseController {
         mapping.put("main","mainPage");
         mapping.put("about","aboutUsPage");
         mapping.put("products","productsPage");
-    }
-
-    @Override
-    public ControllerType getType() {
-        return ControllerType.PAGE;
     }
 
     @GetMapping
