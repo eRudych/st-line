@@ -9,4 +9,8 @@
              relativeToChangelogFile="true" />
     <include file="changelog/04-create-product-schema.xml"
              relativeToChangelogFile="true" />
+    <include file="changelog/05-create-user-schema.xml"
+             relativeToChangelogFile="true" />
+    <include file="changelog/06-create-role-schema.xml"
+             relativeToChangelogFile="true" />
 </databaseChangeLog>
