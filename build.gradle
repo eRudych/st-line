@@ -1,21 +1,32 @@
-plugins {
-	id 'org.springframework.boot' version '2.2.0.RELEASE'
-	id 'io.spring.dependency-management' version '1.0.8.RELEASE'
-	id 'java'
+buildscript {
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:2.2.0.RELEASE")
+		classpath("org.jooq:jooq-codegen:3.11.12")
+		classpath("org.postgresql:postgresql:42.2.0")
+	}
 }
+
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
 
 group = 'com.example'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '1.8'
 
+repositories {
+	mavenCentral()
+	maven { url 'https://repo.spring.io/milestone' }
+}
+
 configurations {
 	compileOnly {
 		extendsFrom annotationProcessor
 	}
-}
-
-repositories {
-	mavenCentral()
 }
 
 dependencies {
@@ -26,12 +37,14 @@ dependencies {
 	implementation 'de.codecentric:spring-boot-admin-starter-client:2.1.6'
 	implementation 'de.codecentric:spring-boot-admin-server-ui-login:1.5.7'
 	implementation 'de.codecentric:spring-boot-admin-starter-server:2.1.6'
-	compile group: 'org.modelmapper', name: 'modelmapper', version: '2.3.2'
 	implementation 'de.codecentric:spring-boot-admin-server-ui'
 	implementation 'org.liquibase:liquibase-core'
+	compileOnly 'org.jooq:jooq:3.11.12'
 	compileOnly 'org.projectlombok:lombok'
+	compileOnly group: 'org.modelmapper', name: 'modelmapper', version: '2.3.2'
 	runtimeOnly 'org.postgresql:postgresql'
 	annotationProcessor 'org.projectlombok:lombok'
+	testCompile("org.springframework.security:spring-security-test")
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
@@ -41,3 +54,36 @@ dependencies {
 test {
 	useJUnitPlatform()
 }
+
+def writer = new StringWriter()
+def xml = new groovy.xml.MarkupBuilder(writer).configuration('xmlns': 'http://www.jooq.org/xsd/jooq-codegen-3.11.0.xsd') {
+	jdbc() {
+		driver('org.postgresql.Driver')
+		url('jdbc:postgresql://localhost:5432/stline')
+		user('root')
+		password('root')
+	}
+	generator() {
+		database() {
+			includes 'messages | posts | photos | products'
+		}
+
+
+		// Watch out for this caveat when using MarkupBuilder with "reserved names"
+		// - https://github.com/jOOQ/jOOQ/issues/4797
+		// - http://stackoverflow.com/a/11389034/521799
+		// - https://groups.google.com/forum/#!topic/jooq-user/wi4S9rRxk4A
+		generate([:]) {
+
+		}
+		target() {
+			packageName('com.example.stline.db')
+			directory('src/main/java')
+		}
+	}
+}
+
+
+// Run the code generator
+// ----------------------
+org.jooq.codegen.GenerationTool.generate(writer.toString());

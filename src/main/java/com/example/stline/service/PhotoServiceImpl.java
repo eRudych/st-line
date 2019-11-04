@@ -13,6 +13,8 @@ public class PhotoServiceImpl implements BaseService {
         return ServiceType.PHOTO;
     }
 
-    public List getPhotos(Photo photo){return null;}
+    public List getPhotos(Photo photo) {
+        return null;
+    }
 
 }

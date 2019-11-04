@@ -12,7 +12,7 @@ import java.util.Objects;
 @Slf4j
 @Component
 @RequiredArgsConstructor
-public class MessageMapper implements Mapper<Message,MessageDTO> {
+public class MessageMapper implements Mapper<Message, MessageDTO> {
 
     private final ModelMapper mapper;
 
@@ -27,6 +27,5 @@ public class MessageMapper implements Mapper<Message,MessageDTO> {
         log.info("Mapper - toDto");
         return Objects.isNull(entity) ? null : mapper.map(entity, MessageDTO.class);
     }
-
 
 }

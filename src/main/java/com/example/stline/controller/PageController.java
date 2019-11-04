@@ -12,11 +12,11 @@ import java.util.Map;
 @Controller
 @RequestMapping(value = "st-line/page/{pageName}")
 @Slf4j
-public class PageControllers {
+public class PageController {
 
     private final Map<String,String> mapping;
 
-    public PageControllers() {
+    public PageController() {
         mapping = new HashMap<>();
         mapping.put("main","mainPage");
         mapping.put("about","aboutUsPage");
