@@ -5,12 +5,13 @@ import com.example.stline.service.MessageService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.MediaType;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "st-line/")
+@RequestMapping(value = "/st-line")
 @RequiredArgsConstructor
 @Slf4j
 public class MessageController {
@@ -19,7 +20,7 @@ public class MessageController {
 
     @PostMapping(consumes = {MediaType.APPLICATION_JSON_VALUE})
     public boolean send(@RequestBody MessageDTO messageDTO){
-         return service.create(messageDTO);
+        return service.create(messageDTO);
     }
 
     @DeleteMapping("/{id}")
@@ -31,5 +32,4 @@ public class MessageController {
     public List getAll(){
         return service.getAll();
     }
-
 }

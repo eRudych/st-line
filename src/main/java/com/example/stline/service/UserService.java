@@ -8,7 +8,7 @@ public interface UserService extends BaseService {
 
     UserDTO create(UserDTO post);
 
-    UserDTO update(UserDTO post);
+    boolean update(UserDTO post);
 
     UserDTO get(Long id);
 

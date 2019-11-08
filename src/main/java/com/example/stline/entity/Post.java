@@ -1,7 +1,9 @@
 package com.example.stline.entity;
 
+import lombok.Getter;
 import lombok.Value;
 
+@Getter
 @Value
 public class Post implements BaseEntity{
     private final Long id;

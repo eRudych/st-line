@@ -1,0 +1,159 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>AngularJS</title>
+<!--    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.js"></script>-->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <link th:href="@{/css/message.css}" rel="stylesheet"/>
+    <script type="text/javascript" th:src="@{/js/message.js}"></script>
+
+    <head>
+<body ng-app="MessageManagement" ng-controller="MessageController">
+<h3>
+    CRUD: Spring Boot + Rest + AngularJS
+</h3>
+
+<br/>
+<table border="1">
+    <tr>
+        <th>Emp Id</th>
+        <th>Emp Name</th>
+        <th>Emp Phone</th>
+        <th>Emp Message</th>
+        <th>Delete</th>
+    </tr>
+    <!-- $scope.messages -->
+    <tr ng-repeat="message in messages">
+        <td> {{ message.id }}</td>
+        <td> {{ message.name }}</td>
+        <td >{{ message.phone }}</td>
+        <td >{{ message.message}}</td>
+        <td>
+            <a ng-click="deleteMessage(message)" class="delete-button">Delete</a>
+        </td>
+    </tr>
+</table>
+<script>var app = angular.module("MessageManagement", []);
+
+// Controller Part
+app.controller("MessageController", function($scope, $http) {
+
+
+    $scope.messages = [];
+    $scope.messageForm = {
+        id: 1,
+        name: "",
+        phone: "",
+        message: ""
+    };
+
+    // Now load the data from server
+    _refreshMessageData();
+
+    // HTTP POST/PUT methods for add/edit employee
+    // Call: http://localhost:8080/employee
+    $scope.submitMessage = function() {
+
+        var method = "";
+        var url = "";
+
+        if ($scope.messageForm.empId == -1) {
+            method = "POST";
+            url = '/st-line';
+        } else {
+        }
+
+        $http({
+            method: method,
+            url: url,
+            data: angular.toJson($scope.messageForm),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }).then(_success, _error);
+    };
+
+    $scope.createMessage = function() {
+        _clearFormData();
+    }
+
+    // HTTP DELETE- delete employee by Id
+    // Call: http://localhost:8080/employee/{empId}
+    $scope.deleteMessage = function(message) {
+        $http({
+            method: 'DELETE',
+            url: '/st-line/' + message.id
+        }).then(_success, _error);
+    };
+
+    // In case of edit
+    $scope.editEmployee = function(message) {
+        $scope.messageForm.id = message.id;
+        $scope.messageForm.name = message.name;
+        $scope.messageForm.phone = message.phone;
+        $scope.messageForm.message = message.message;
+    };
+
+    // Private Method
+    // HTTP GET- get all employees collection
+    // Call: http://localhost:8080/employees
+    function _refreshMessageData() {
+        $http({
+            method: 'GET',
+            url: '/st-line'
+        }).then(
+            function(res) { // success
+                $scope.messages = res.data;
+            },
+            function(res) { // error
+                console.log("Error: " + res.status + " : " + res.data);
+            }
+        );
+    }
+
+    function _success(res) {
+        _refreshMessageData();
+        _clearFormData();
+    }
+
+    function _error(res) {
+        var data = res.data;
+        var status = res.status;
+        var header = res.header;
+        var config = res.config;
+        alert("Error: " + status + ":" + data);
+    }
+
+    // Clear the form
+    function _clearFormData() {
+        $scope.messageForm.empId = -1;
+        $scope.messageForm.empNo = "";
+        $scope.messageForm.empName = ""
+    };
+});</script>
+<style>table  {
+    border-collapse: collapse;
+}
+
+table td, th  {
+    padding: 5px;
+}
+
+.create-button  {
+    color: blue;
+    cursor: pointer;
+    padding: 5px;
+}
+.edit-button  {
+    padding: 2px 5px;
+    background: #25A6E1;
+    cursor: pointer;
+}
+
+.delete-button  {
+    padding: 2px 5px;
+    background: #CD5C5C;
+    cursor: pointer;
+}</style>
+</body>
+</html>

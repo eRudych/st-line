@@ -8,6 +8,8 @@ import com.example.stline.db.public_.tables.Messages;
 import com.example.stline.db.public_.tables.Photos;
 import com.example.stline.db.public_.tables.Posts;
 import com.example.stline.db.public_.tables.Products;
+import com.example.stline.db.public_.tables.Roles;
+import com.example.stline.db.public_.tables.Users;
 
 import javax.annotation.Generated;
 
@@ -37,6 +39,8 @@ public class Indexes {
     public static final Index PHOTOS_PKEY = Indexes0.PHOTOS_PKEY;
     public static final Index POSTS_PKEY = Indexes0.POSTS_PKEY;
     public static final Index PRODUCTS_PKEY = Indexes0.PRODUCTS_PKEY;
+    public static final Index ROLES_PKEY = Indexes0.ROLES_PKEY;
+    public static final Index USERS_PKEY = Indexes0.USERS_PKEY;
 
     // -------------------------------------------------------------------------
     // [#1459] distribute members to avoid static initialisers > 64kb
@@ -47,5 +51,7 @@ public class Indexes {
         public static Index PHOTOS_PKEY = Internal.createIndex("photos_pkey", Photos.PHOTOS, new OrderField[] { Photos.PHOTOS.ID }, true);
         public static Index POSTS_PKEY = Internal.createIndex("posts_pkey", Posts.POSTS, new OrderField[] { Posts.POSTS.ID }, true);
         public static Index PRODUCTS_PKEY = Internal.createIndex("products_pkey", Products.PRODUCTS, new OrderField[] { Products.PRODUCTS.ID }, true);
+        public static Index ROLES_PKEY = Internal.createIndex("roles_pkey", Roles.ROLES, new OrderField[] { Roles.ROLES.ID }, true);
+        public static Index USERS_PKEY = Internal.createIndex("users_pkey", Users.USERS, new OrderField[] { Users.USERS.ID }, true);
     }
 }

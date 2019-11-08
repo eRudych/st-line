@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -21,18 +22,21 @@ public class UserServiceImpl implements UserService {
     private final UserMapper mapper;
 
     @Override
+    @Transactional
     public boolean remove(Long id) {
         return repository.remove(id);
     }
 
     @Override
+    @Transactional
     public UserDTO create(UserDTO post) {
         return mapper.toDto(repository.create(mapper.toEntity(post)));
     }
 
     @Override
-    public UserDTO update(UserDTO post) {
-        return mapper.toDto(repository.update(mapper.toEntity(post)));
+    @Transactional
+    public boolean update(UserDTO post) {
+        return repository.update(mapper.toEntity(post));
     }
 
     @Override

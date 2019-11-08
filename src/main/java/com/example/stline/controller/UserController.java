@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "st-line/users/")
+@RequestMapping(value = "/st-line/users")
 @RequiredArgsConstructor()
 @Slf4j
 public class UserController {
@@ -29,7 +29,7 @@ public class UserController {
     }
 
     @PutMapping(consumes = {MediaType.APPLICATION_JSON_VALUE})
-    public UserDTO update(@RequestBody UserDTO userDTO) {
+    public boolean update(@RequestBody UserDTO userDTO) {
         return service.update(userDTO);
     }
 

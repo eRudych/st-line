@@ -8,10 +8,14 @@ import com.example.stline.db.public_.tables.Messages;
 import com.example.stline.db.public_.tables.Photos;
 import com.example.stline.db.public_.tables.Posts;
 import com.example.stline.db.public_.tables.Products;
+import com.example.stline.db.public_.tables.Roles;
+import com.example.stline.db.public_.tables.Users;
 import com.example.stline.db.public_.tables.records.MessagesRecord;
 import com.example.stline.db.public_.tables.records.PhotosRecord;
 import com.example.stline.db.public_.tables.records.PostsRecord;
 import com.example.stline.db.public_.tables.records.ProductsRecord;
+import com.example.stline.db.public_.tables.records.RolesRecord;
+import com.example.stline.db.public_.tables.records.UsersRecord;
 
 import javax.annotation.Generated;
 
@@ -47,12 +51,16 @@ public class Keys {
     public static final UniqueKey<PhotosRecord> PHOTOS_PKEY = UniqueKeys0.PHOTOS_PKEY;
     public static final UniqueKey<PostsRecord> POSTS_PKEY = UniqueKeys0.POSTS_PKEY;
     public static final UniqueKey<ProductsRecord> PRODUCTS_PKEY = UniqueKeys0.PRODUCTS_PKEY;
+    public static final UniqueKey<RolesRecord> ROLES_PKEY = UniqueKeys0.ROLES_PKEY;
+    public static final UniqueKey<UsersRecord> USERS_PKEY = UniqueKeys0.USERS_PKEY;
 
     // -------------------------------------------------------------------------
     // FOREIGN KEY definitions
     // -------------------------------------------------------------------------
 
     public static final ForeignKey<PhotosRecord, ProductsRecord> PHOTOS__FK_PHOTOS_PRODUCTS = ForeignKeys0.PHOTOS__FK_PHOTOS_PRODUCTS;
+    public static final ForeignKey<PostsRecord, UsersRecord> POSTS__FK_POSTS_USERS = ForeignKeys0.POSTS__FK_POSTS_USERS;
+    public static final ForeignKey<UsersRecord, RolesRecord> USERS__FK_USERS_ROLES = ForeignKeys0.USERS__FK_USERS_ROLES;
 
     // -------------------------------------------------------------------------
     // [#1459] distribute members to avoid static initialisers > 64kb
@@ -63,9 +71,13 @@ public class Keys {
         public static final UniqueKey<PhotosRecord> PHOTOS_PKEY = Internal.createUniqueKey(Photos.PHOTOS, "photos_pkey", Photos.PHOTOS.ID);
         public static final UniqueKey<PostsRecord> POSTS_PKEY = Internal.createUniqueKey(Posts.POSTS, "posts_pkey", Posts.POSTS.ID);
         public static final UniqueKey<ProductsRecord> PRODUCTS_PKEY = Internal.createUniqueKey(Products.PRODUCTS, "products_pkey", Products.PRODUCTS.ID);
+        public static final UniqueKey<RolesRecord> ROLES_PKEY = Internal.createUniqueKey(Roles.ROLES, "roles_pkey", Roles.ROLES.ID);
+        public static final UniqueKey<UsersRecord> USERS_PKEY = Internal.createUniqueKey(Users.USERS, "users_pkey", Users.USERS.ID);
     }
 
     private static class ForeignKeys0 {
         public static final ForeignKey<PhotosRecord, ProductsRecord> PHOTOS__FK_PHOTOS_PRODUCTS = Internal.createForeignKey(com.example.stline.db.public_.Keys.PRODUCTS_PKEY, Photos.PHOTOS, "photos__fk_photos_products", Photos.PHOTOS.PRODUCT);
+        public static final ForeignKey<PostsRecord, UsersRecord> POSTS__FK_POSTS_USERS = Internal.createForeignKey(com.example.stline.db.public_.Keys.USERS_PKEY, Posts.POSTS, "posts__fk_posts_users", Posts.POSTS.AUTHOR);
+        public static final ForeignKey<UsersRecord, RolesRecord> USERS__FK_USERS_ROLES = Internal.createForeignKey(com.example.stline.db.public_.Keys.ROLES_PKEY, Users.USERS, "users__fk_users_roles", Users.USERS.ROLE);
     }
 }

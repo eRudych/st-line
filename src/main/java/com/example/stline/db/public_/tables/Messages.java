@@ -9,7 +9,6 @@ import com.example.stline.db.public_.Keys;
 import com.example.stline.db.public_.Public;
 import com.example.stline.db.public_.tables.records.MessagesRecord;
 
-import java.sql.Timestamp;
 import java.util.Arrays;
 import java.util.List;
 
@@ -41,7 +40,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Messages extends TableImpl<MessagesRecord> {
 
-    private static final long serialVersionUID = -414435749;
+    private static final long serialVersionUID = -1726870078;
 
     /**
      * The reference instance of <code>public.messages</code>
@@ -75,16 +74,6 @@ public class Messages extends TableImpl<MessagesRecord> {
      * The column <code>public.messages.phone</code>.
      */
     public final TableField<MessagesRecord, String> PHONE = createField("phone", org.jooq.impl.SQLDataType.VARCHAR(255).nullable(false), this, "");
-
-    /**
-     * The column <code>public.messages.created_at</code>.
-     */
-    public final TableField<MessagesRecord, Timestamp> CREATED_AT = createField("created_at", org.jooq.impl.SQLDataType.TIMESTAMP, this, "");
-
-    /**
-     * The column <code>public.messages.updated_at</code>.
-     */
-    public final TableField<MessagesRecord, Timestamp> UPDATED_AT = createField("updated_at", org.jooq.impl.SQLDataType.TIMESTAMP, this, "");
 
     /**
      * Create a <code>public.messages</code> table reference

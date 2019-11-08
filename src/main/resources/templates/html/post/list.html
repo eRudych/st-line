@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<!--lang="{{ str_replace('_', '-', app()->getLocale()) }}">-->
+<head>
+    <script>
+        function includeHTML() {
+            var z, i, elmnt, file, xhttp;
+            /*loop through a collection of all HTML elements:*/
+            z = document.getElementsByTagName("*");
+            for (i = 0; i < z.length; i++) {
+                elmnt = z[i];
+                /*search for elements with a certain atrribute:*/
+                file = elmnt.getAttribute("w3-include-html");
+                if (file) {
+                    /*make an HTTP request using the attribute value as the file name:*/
+                    xhttp = new XMLHttpRequest();
+                    xhttp.onreadystatechange = function () {
+                        if (this.readyState == 4) {
+                            if (this.status == 200) {
+                                elmnt.innerHTML = this.responseText;
+                            }
+                            if (this.status == 404) {
+                                elmnt.innerHTML = "Page not found.";
+                            }
+                            /*remove the attribute, and call this function once more:*/
+                            elmnt.removeAttribute("w3-include-html");
+                            includeHTML();
+                        }
+                    }
+                    xhttp.open("GET", file, true);
+                    xhttp.send();
+                    /*exit the function:*/
+                    return;
+                }
+            }
+        };
+    </script>
+</head>
+<body>
+<div w3-include-html="appStyle.html"></div>
+<div w3-include-html="links.html"></div>
+<div w3-include-html="header.html"></div>
+<h1>Get List Post Page</h1>@extends('layouts.app')
+
+@section('content')
+<div class="container">
+    <h1 class="jumbotron-heading">Наши новинки и акции:</h1>
+    @foreach ($posts as $post)
+    <div class="alert alert-secondary" role="alert">
+        <h2><a class="text-muted" href="../../post/{{id}}">{{title}}</a></h2>
+        <hr>
+        <p class="lead"><h2>{!!description!!}</h2></p>
+        <p style="float: right">{{created_at}}</p>
+    </div>
+
+    @endforeach
+</div>
+@endsection
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdn.ckeditor.com/4.11.1/standard/ckeditor.js"></script>
+<script>
+    $(document).ready(function(){
+        CKEDITOR.replace( 'description');
+        CKEDITOR.replace( 'text');
+    })
+</script>
+
+<div w3-include-html="footer.html"></div>
+
+<script>
+    includeHTML();
+</script>
+</body>
+</html>
+@endsection
+

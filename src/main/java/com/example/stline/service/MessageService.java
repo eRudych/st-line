@@ -1,6 +1,5 @@
 package com.example.stline.service;
 
-import com.example.stline.dto.BaseDTO;
 import com.example.stline.dto.MessageDTO;
 
 import java.util.List;

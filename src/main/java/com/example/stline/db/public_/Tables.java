@@ -8,6 +8,8 @@ import com.example.stline.db.public_.tables.Messages;
 import com.example.stline.db.public_.tables.Photos;
 import com.example.stline.db.public_.tables.Posts;
 import com.example.stline.db.public_.tables.Products;
+import com.example.stline.db.public_.tables.Roles;
+import com.example.stline.db.public_.tables.Users;
 
 import javax.annotation.Generated;
 
@@ -44,4 +46,14 @@ public class Tables {
      * The table <code>public.products</code>.
      */
     public static final Products PRODUCTS = com.example.stline.db.public_.tables.Products.PRODUCTS;
+
+    /**
+     * The table <code>public.roles</code>.
+     */
+    public static final Roles ROLES = com.example.stline.db.public_.tables.Roles.ROLES;
+
+    /**
+     * The table <code>public.users</code>.
+     */
+    public static final Users USERS = com.example.stline.db.public_.tables.Users.USERS;
 }

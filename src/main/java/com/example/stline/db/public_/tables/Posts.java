@@ -9,7 +9,6 @@ import com.example.stline.db.public_.Keys;
 import com.example.stline.db.public_.Public;
 import com.example.stline.db.public_.tables.records.PostsRecord;
 
-import java.sql.Timestamp;
 import java.util.Arrays;
 import java.util.List;
 
@@ -41,7 +40,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Posts extends TableImpl<PostsRecord> {
 
-    private static final long serialVersionUID = -705945422;
+    private static final long serialVersionUID = 1136767504;
 
     /**
      * The reference instance of <code>public.posts</code>
@@ -80,16 +79,6 @@ public class Posts extends TableImpl<PostsRecord> {
      * The column <code>public.posts.author</code>.
      */
     public final TableField<PostsRecord, Integer> AUTHOR = createField("author", org.jooq.impl.SQLDataType.INTEGER.nullable(false), this, "");
-
-    /**
-     * The column <code>public.posts.created_at</code>.
-     */
-    public final TableField<PostsRecord, Timestamp> CREATED_AT = createField("created_at", org.jooq.impl.SQLDataType.TIMESTAMP, this, "");
-
-    /**
-     * The column <code>public.posts.updated_at</code>.
-     */
-    public final TableField<PostsRecord, Timestamp> UPDATED_AT = createField("updated_at", org.jooq.impl.SQLDataType.TIMESTAMP, this, "");
 
     /**
      * Create a <code>public.posts</code> table reference
@@ -154,6 +143,18 @@ public class Posts extends TableImpl<PostsRecord> {
     @Override
     public List<UniqueKey<PostsRecord>> getKeys() {
         return Arrays.<UniqueKey<PostsRecord>>asList(Keys.POSTS_PKEY);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public List<ForeignKey<PostsRecord, ?>> getReferences() {
+        return Arrays.<ForeignKey<PostsRecord, ?>>asList(Keys.POSTS__FK_POSTS_USERS);
+    }
+
+    public Users users() {
+        return new Users(this, Keys.POSTS__FK_POSTS_USERS);
     }
 
     /**

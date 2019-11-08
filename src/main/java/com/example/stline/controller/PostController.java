@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "st-line/posts/")
+@RequestMapping(value = "/st-line/posts")
 @RequiredArgsConstructor
 @Slf4j
 public class PostController {

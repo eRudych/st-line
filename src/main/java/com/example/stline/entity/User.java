@@ -8,4 +8,5 @@ public class User implements BaseEntity {
     private final String name;
     private final String login;
     private final String password;
+    private final UserRole role;
 }

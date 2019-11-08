@@ -9,6 +9,8 @@ import com.example.stline.db.public_.tables.Messages;
 import com.example.stline.db.public_.tables.Photos;
 import com.example.stline.db.public_.tables.Posts;
 import com.example.stline.db.public_.tables.Products;
+import com.example.stline.db.public_.tables.Roles;
+import com.example.stline.db.public_.tables.Users;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -34,7 +36,7 @@ import org.jooq.impl.SchemaImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Public extends SchemaImpl {
 
-    private static final long serialVersionUID = -503250814;
+    private static final long serialVersionUID = -2119457324;
 
     /**
      * The reference instance of <code>public</code>
@@ -60,6 +62,16 @@ public class Public extends SchemaImpl {
      * The table <code>public.products</code>.
      */
     public final Products PRODUCTS = com.example.stline.db.public_.tables.Products.PRODUCTS;
+
+    /**
+     * The table <code>public.roles</code>.
+     */
+    public final Roles ROLES = com.example.stline.db.public_.tables.Roles.ROLES;
+
+    /**
+     * The table <code>public.users</code>.
+     */
+    public final Users USERS = com.example.stline.db.public_.tables.Users.USERS;
 
     /**
      * No further instances allowed
@@ -89,6 +101,8 @@ public class Public extends SchemaImpl {
             Messages.MESSAGES,
             Photos.PHOTOS,
             Posts.POSTS,
-            Products.PRODUCTS);
+            Products.PRODUCTS,
+            Roles.ROLES,
+            Users.USERS);
     }
 }

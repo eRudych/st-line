@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -21,11 +22,13 @@ public class PostServiceImpl implements PostService {
     private final PostMapper mapper;
 
     @Override
+    @Transactional
     public PostDTO create(PostDTO post) {
         return mapper.toDto(repository.create(mapper.toEntity(post)));
     }
 
     @Override
+    @Transactional
     public PostDTO update(PostDTO post) {
         if(repository.update(mapper.toEntity(post)))
             return mapper.toDto(repository.get(post.getId()));
@@ -43,6 +46,7 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
+    @Transactional
     public boolean remove(Long id) {
         return repository.remove(id);
     }

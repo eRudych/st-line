@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -21,15 +22,16 @@ public class MessageServiceImpl implements MessageService {
     private final MessageMapper mapper;
 
     @Override
+    @Transactional
     public boolean create(MessageDTO messageDTO) {
         return repository.create(mapper.toEntity(messageDTO));
     }
 
     @Override
+    @Transactional
     public boolean remove(Long id) {
         return repository.remove(id);
     }
-
 
     @Override
     public List<MessageDTO> getAll() {

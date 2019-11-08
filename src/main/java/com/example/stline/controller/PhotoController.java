@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "st-line/photos/")
+@RequestMapping(value = "/st-line/photos")
 @RequiredArgsConstructor
 @Slf4j
 public class PhotoController {

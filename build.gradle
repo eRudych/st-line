@@ -9,10 +9,12 @@ buildscript {
 	}
 }
 
+
 apply plugin: 'java'
 apply plugin: 'idea'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
+//apply plugin: 'com.moowork.node'
 
 group = 'com.example'
 version = '0.0.1-SNAPSHOT'
@@ -22,6 +24,7 @@ repositories {
 	mavenCentral()
 	maven { url 'https://repo.spring.io/milestone' }
 }
+
 
 configurations {
 	compileOnly {
@@ -34,10 +37,11 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-security'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	implementation 'de.codecentric:spring-boot-admin-starter-client:2.1.6'
-	implementation 'de.codecentric:spring-boot-admin-server-ui-login:1.5.7'
-	implementation 'de.codecentric:spring-boot-admin-starter-server:2.1.6'
-	implementation 'de.codecentric:spring-boot-admin-server-ui'
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+//	implementation 'de.codecentric:spring-boot-admin-starter-client:2.1.6'
+//	implementation 'de.codecentric:spring-boot-admin-server-ui-login:1.5.7'
+//	implementation 'de.codecentric:spring-boot-admin-starter-server:2.1.6'
+//	implementation 'de.codecentric:spring-boot-admin-server-ui'
 	implementation 'org.liquibase:liquibase-core'
 	compileOnly 'org.jooq:jooq:3.11.12'
 	compileOnly 'org.projectlombok:lombok'
@@ -65,7 +69,7 @@ def xml = new groovy.xml.MarkupBuilder(writer).configuration('xmlns': 'http://ww
 	}
 	generator() {
 		database() {
-			includes 'messages | posts | photos | products'
+			includes 'messages | posts | photos | products | users | roles'
 		}
 
 
