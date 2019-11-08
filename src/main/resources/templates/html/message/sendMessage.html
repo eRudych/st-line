@@ -12,11 +12,15 @@
 
 <!--    <script src="../../src/main/resources/static/js/lib/angular.min.js"></script>-->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
     <script src="https://cdn.ckeditor.com/4.11.1/standard/ckeditor.js"></script>
 
 <!--    <script th:src="@{/main.js}"></script>-->
-<!--    <link th:href="@{/css/message.css}" rel="stylesheet" />-->
+    <link th:href="@{app.css}" rel="stylesheet" />
+    <link th:href="@{/css/message.css}" rel="stylesheet" />
+    <link th:href="@{../static/css/message.css}" rel="stylesheet" />
+    <link th:href="@{../../../static/css/message.css}" rel="stylesheet" />
+    <link th:href="@{../src/main/resources/static/css/message.css}" rel="stylesheet" />
 
     <head>
 <body ng-app="MessageManagement" ng-controller="MessageController">
@@ -145,28 +149,4 @@ app.controller("MessageController", function($scope, $http) {
         $scope.messageForm.empName = ""
     };
 });</script>
-<style>table  {
-    border-collapse: collapse;
-}
-
-table td, th  {
-    padding: 5px;
-}
-
-.create-button  {
-    color: blue;
-    cursor: pointer;
-    padding: 5px;
-}
-.edit-button  {
-    padding: 2px 5px;
-    background: #25A6E1;
-    cursor: pointer;
-}
-
-.delete-button  {
-    padding: 2px 5px;
-    background: #CD5C5C;
-    cursor: pointer;
-}</style>
 </html>
