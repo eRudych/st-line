@@ -2,10 +2,19 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>AngularJS</title>
-<!--    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.js"></script>-->
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-    <link th:href="@{/css/message.css}" rel="stylesheet"/>
-    <script type="text/javascript" th:src="@{/js/message.js}"></script>
+    <script th:src="@{/static/v2/js/lib/angular.min.js}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.ckeditor.com/4.11.1/standard/ckeditor.js"></script>
+    <script th:src="@{/static/v2/js/lib/ui-bootstrap-tpls-2.5.0.min.js}"></script>
+    <script th:src="@{/static/v2/js/app/app.js}"></script>
+    <script th:src="@{/static/v2/js/message.js}"></script>
+    <script th:src="@{/static/v2/js/app/UserController.js}"></script>
+    <script th:src="@{/static/v2/js/app/UserService.js}"></script>
+
+    <link th:href="@{/static/v2/css/app/app_style.css}" rel="stylesheet"/>
+    <link th:href="@{/static/v2/css/app/app.css}" rel="stylesheet"/>
+    <link th:href="@{/static/v2/css/message.css}" rel="stylesheet"/>
+    <link th:href="@{/static/v2/css/app/bootstrap.min.css}" rel="stylesheet"/>
 
     <script>
         function includeHTML() {
@@ -47,9 +56,7 @@
     CRUD: Spring Boot + Rest + AngularJS
 </h3>
 
-<div w3-include-html="appStyle.html"></div>
-<div w3-include-html="links.html"></div>
-<div w3-include-html="header.html"></div>
+<div th:include="html/import/header"></div>
 
 <br/>
 <table border="1">
@@ -194,7 +201,7 @@ table td, th  {
     cursor: pointer;
 }</style>
 
-<div w3-include-html="footer.html"></div>
+<div th:include="html/import/footer"></div>
 
 <script>
     includeHTML();
