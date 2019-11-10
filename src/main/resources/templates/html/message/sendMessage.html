@@ -2,25 +2,18 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>AngularJS</title>
-<!--    <script src="../../static/js/lib/angular.min.js"></script>-->
-<!--    <script src="../../static/js/lib/ui-bootstrap-tpls-2.5.0.min.js"></script>-->
-<!--    <script src="../../static/js/message.js"></script>-->
-<!--    <script src="js/app/UserController.js"></script>-->
-<!--    <script src="js/app/UserService.js"></script>-->
-<!--    <link rel="stylesheet" href="../../static/css/lib/bootstrap.min.css"/>-->
-<!--    <link rel="stylesheet" href="../../static/css/message.css"/>-->
-
-<!--    <script src="../../src/main/resources/static/js/lib/angular.min.js"></script>-->
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-<!--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
+    <script th:src="@{/static/v2/js/lib/angular.min.js}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdn.ckeditor.com/4.11.1/standard/ckeditor.js"></script>
+    <script th:src="@{/static/v2/js/lib/ui-bootstrap-tpls-2.5.0.min.js}"></script>
+    <script th:src="@{/static/v2/js/app/app.js}"></script>
+    <script th:src="@{/static/v2/js/message.js}"></script>
+    <script th:src="@{/static/v2/js/app/UserController.js}"></script>
+    <script th:src="@{/static/v2/js/app/UserService.js}"></script>
 
-<!--    <script th:src="@{/main.js}"></script>-->
-    <link th:href="@{app.css}" rel="stylesheet" />
-    <link th:href="@{/css/message.css}" rel="stylesheet" />
-    <link th:href="@{../static/css/message.css}" rel="stylesheet" />
-    <link th:href="@{../../../static/css/message.css}" rel="stylesheet" />
-    <link th:href="@{../src/main/resources/static/css/message.css}" rel="stylesheet" />
+    <link th:href="@{v2/css/app/app.css}" rel="stylesheet"/>
+    <link th:href="@{/static/v2/css/message.css}" rel="stylesheet"/>
+    <link th:href="@{/static/v2/css/app/bootstrap.min.css}" rel="stylesheet"/>
 
     <head>
 <body ng-app="MessageManagement" ng-controller="MessageController">
@@ -31,19 +24,19 @@
     <table border="0">
         <tr>
             <td>Name</td>
-            <td><input type="text" ng-model="messageForm.name" /></td>
+            <td><input type="text" ng-model="messageForm.name"/></td>
         </tr>
         <tr>
             <td>Phone</td>
-            <td><input type="text" ng-model="messageForm.phone"  /></td>
+            <td><input type="text" ng-model="messageForm.phone"/></td>
         </tr>
         <tr>
             <td>Message</td>
-            <td><input type="text" ng-model="messageForm.message"  /></td>
+            <td><input type="text" ng-model="messageForm.message"/></td>
         </tr>
         <tr>
             <td colspan="2">
-                <input type="submit" value="Submit" class="blue-button" />
+                <input type="submit" value="Submit" class="blue-button"/>
             </td>
         </tr>
     </table>
@@ -54,7 +47,7 @@
 <script>var app = angular.module("MessageManagement", []);
 
 // Controller Part
-app.controller("MessageController", function($scope, $http) {
+app.controller("MessageController", function ($scope, $http) {
 
 
     $scope.messages = [];
@@ -70,7 +63,7 @@ app.controller("MessageController", function($scope, $http) {
 
     // HTTP POST/PUT methods for add/edit employee
     // Call: http://localhost:8080/employee
-    $scope.submitMessage = function() {
+    $scope.submitMessage = function () {
 
         var method = "";
         var url = "";
@@ -91,13 +84,13 @@ app.controller("MessageController", function($scope, $http) {
         }).then(_success, _error);
     };
 
-    $scope.createMessage = function() {
+    $scope.createMessage = function () {
         _clearFormData();
     }
 
     // HTTP DELETE- delete employee by Id
     // Call: http://localhost:8080/employee/{empId}
-    $scope.deleteMessage = function(message) {
+    $scope.deleteMessage = function (message) {
         $http({
             method: 'DELETE',
             url: '/st-line/' + message.id
@@ -105,7 +98,7 @@ app.controller("MessageController", function($scope, $http) {
     };
 
     // In case of edit
-    $scope.editEmployee = function(message) {
+    $scope.editEmployee = function (message) {
         $scope.messageForm.id = message.id;
         $scope.messageForm.name = message.name;
         $scope.messageForm.phone = message.phone;
@@ -120,10 +113,10 @@ app.controller("MessageController", function($scope, $http) {
             method: 'GET',
             url: '/st-line'
         }).then(
-            function(res) { // success
+            function (res) { // success
                 $scope.messages = res.data;
             },
-            function(res) { // error
+            function (res) { // error
                 console.log("Error: " + res.status + " : " + res.data);
             }
         );
