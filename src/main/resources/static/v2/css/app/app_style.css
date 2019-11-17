@@ -9494,15 +9494,8 @@ a.text-dark:focus, a.text-dark:hover {
 .navbar-laravel {
     background-color: #fff;
     -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, .04);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, .04)
-}
-
-url{
-(
-"https://dwstroy.ru/lessons/les3623/demo/img/ep_naturalblack.png"
-)
-;
-}
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .04);
+ @import: url("https://dwstroy.ru/lessons/les3623/demo/img/ep_naturalblack.png");}
 .dws {
     position: absolute;
     top: 50%;

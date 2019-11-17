@@ -6,6 +6,7 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
@@ -20,32 +21,34 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             throws Exception {
         auth
                 .inMemoryAuthentication()
-                .withUser("root")
-                .password("root")
-                .roles("ADMIN")
-                .and()
-                .withUser("manager")
-                .password("hahaha")
-                .roles("MANAGER");
+                    .withUser("root")
+                        .password(passwordEncoder().encode("root"))
+                        .roles("ADMIN")
+                    .and()
+                    .withUser("manager")
+                        .password(passwordEncoder().encode("hahaha"))
+                        .roles("MANAGER");
     }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.antMatcher("/**")
                 .authorizeRequests()
-                .antMatchers("/v2/**").permitAll()
-                .anyRequest()
-                .authenticated()
+                .antMatchers("/v2/**","/st-line/about","/st-line/new","/st-line/products","/st-line/main").permitAll()
+//                .antMatchers("/v2/**").permitAll()
+//                .anyRequest()
+//                .authenticated()
+                .antMatchers("/st-line/messages","/st-line/createPost").authenticated()
                 .and()
-                .formLogin()
-                .successHandler(successHandler())
-                .defaultSuccessUrl("/st-line/page/messages")
-                .permitAll()
+                    .formLogin()
+                    .successHandler(successHandler())
+                    .defaultSuccessUrl("/st-line/messages")
+                    .permitAll()
                 .and()
-                .logout()
-                .permitAll()
+                    .logout()
+                    .permitAll()
                 .and()
-                .csrf().disable();
+                    .csrf().disable();
     }
 
     @Bean
@@ -56,7 +59,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     @Bean
-    public PasswordEncoder getPasswordEncoder() {
-        return NoOpPasswordEncoder.getInstance();
+    public BCryptPasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
     }
 }

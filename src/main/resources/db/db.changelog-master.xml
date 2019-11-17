@@ -1,16 +1,16 @@
 <databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
-    <include file="changelog/01-create-messages-schema.xml"
+    <include file="changelog/01-create-message.xml"
              relativeToChangelogFile="true" />
-    <include file="changelog/04-create-product-schema.xml"
+    <include file="changelog/04-create-product.xml"
              relativeToChangelogFile="true" />
-    <include file="changelog/03-create-photo-schema.xml"
+    <include file="changelog/03-create-photo.xml"
              relativeToChangelogFile="true" />
-    <include file="changelog/06-create-role-schema.xml"
+    <include file="changelog/06-create-role.xml"
              relativeToChangelogFile="true" />
-    <include file="changelog/05-create-user-schema.xml"
+    <include file="changelog/05-create-user.xml"
              relativeToChangelogFile="true" />
-    <include file="changelog/02-create-posts-schema.xml"
+    <include file="changelog/02-create-post.xml"
              relativeToChangelogFile="true" />
 </databaseChangeLog>

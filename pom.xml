@@ -20,6 +20,7 @@
         <jooq.url>jdbc:postgresql://localhost:5432/stline</jooq.url>
         <jooq.login>root</jooq.login>
         <jooq.password>root</jooq.password>
+        <jooq.version>3.10.0</jooq.version>
     </properties>
 
     <dependencies>
@@ -48,15 +49,10 @@
             <artifactId>spring-boot-admin-starter-client</artifactId>
             <version>2.1.6</version>
         </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-thymeleaf</artifactId>
-            <version>2.2.1.RELEASE</version>
-        </dependency>
-<!--        <dependency>-->
-<!--            <groupId>de.codecentric</groupId>-->
-<!--            <artifactId>spring-boot-admin-server-ui-login</artifactId>-->
-<!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>de.codecentric</groupId>-->
+        <!--            <artifactId>spring-boot-admin-server-ui-login</artifactId>-->
+        <!--        </dependency>-->
         <dependency>
             <groupId>de.codecentric</groupId>
             <artifactId>spring-boot-admin-starter-server</artifactId>
@@ -74,6 +70,27 @@
         <dependency>
             <groupId>org.jooq</groupId>
             <artifactId>jooq</artifactId>
+            <version>${jooq.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jooq</groupId>
+            <artifactId>jooq-codegen</artifactId>
+            <version>${jooq.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jooq</groupId>
+            <artifactId>jooq-codegen-maven</artifactId>
+            <version>${jooq.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jooq</groupId>
+            <artifactId>jooq-meta</artifactId>
+            <version>${jooq.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jooq</groupId>
+            <artifactId>jooq-meta-extensions</artifactId>
+            <version>${jooq.version}</version>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -83,10 +100,6 @@
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
             <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
         </dependency>
         <dependency>
             <groupId>org.modelmapper</groupId>
@@ -103,72 +116,84 @@
             <artifactId>spring-security-test</artifactId>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-web</artifactId>
+<!--            <version>5.2.0.RELEASE</version>-->
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-config</artifactId>
+<!--            <version>5.2.0.RELEASE</version>-->
+        </dependency>
+        <dependency>
+            <groupId>org.thymeleaf.extras</groupId>
+            <artifactId>thymeleaf-extras-springsecurity5</artifactId>
+<!--            <version>3.0.4.RELEASE</version>-->
+        </dependency>
     </dependencies>
-<!--    <build>-->
-<!--        <plugins>-->
-<!--            <plugin>-->
-<!--                <groupId>org.springframework.boot</groupId>-->
-<!--                <artifactId>spring-boot-maven-plugin</artifactId>-->
-<!--            </plugin>-->
-<!--            <plugin>-->
-<!--                <groupId>org.jooq</groupId>-->
-<!--                <artifactId>jooq-codegen-maven</artifactId>-->
-<!--                <executions>-->
-<!--                    <execution>-->
-<!--                        <goals>-->
-<!--                            <goal>generate</goal>-->
-<!--                        </goals>-->
-<!--                    </execution>-->
-<!--                </executions>-->
-<!--                <configuration>-->
-<!--                    <skip>true</skip>-->
-<!--                    <jdbc>-->
-<!--                        <driver>org.postgresql.Driver</driver>-->
-<!--                        <url>${jooq.url}</url>-->
-<!--                        <user>${jooq.login}</user>-->
-<!--                        <password>${jooq.password}</password>-->
-<!--                    </jdbc>-->
-<!--                    <generator>-->
-<!--                        <generate>-->
-<!--                            <routines>false</routines>-->
-<!--                            <sequences>false</sequences>-->
-<!--                            <records>false</records>-->
-<!--                            <udts>false</udts>-->
-<!--                            <pojos>false</pojos>-->
-<!--                            <immutablePojos>false</immutablePojos>-->
-<!--                            <interfaces>false</interfaces>-->
-<!--                            <daos>false</daos>-->
-<!--                            <jpaAnnotations>false</jpaAnnotations>-->
-<!--                            <validationAnnotations>false</validationAnnotations>-->
-<!--                            <globalObjectReferences>false</globalObjectReferences>-->
-<!--                            <deprecated>false</deprecated>-->
-<!--                            <instanceFields>true</instanceFields>-->
-<!--                            <generatedAnnotation>false</generatedAnnotation>-->
-<!--                        </generate>-->
-<!--                        <database>-->
-<!--                            <name>org.jooq.util.postgres.PostgresDatabase</name>-->
-<!--                            <includes>-->
-<!--                                <include>messages</include>-->
-<!--                                <include>posts</include>-->
-<!--                                <include>photos</include>-->
-<!--                                <include>products</include>-->
-<!--                                <include>users</include>-->
-<!--                                <include>roles</include>-->
-<!--                            </includes>-->
-<!--                            <schemata>-->
-<!--                                <schema>-->
-<!--                                    <inputSchema>public</inputSchema>-->
-<!--                                </schema>-->
-<!--                            </schemata>-->
-<!--                        </database>-->
-<!--                        <target>-->
-<!--                            <packageName>com.example.stline.db</packageName>-->
-<!--                            <directory>src/main/java</directory>-->
-<!--                        </target>-->
-<!--                    </generator>-->
-<!--                </configuration>-->
-<!--            </plugin>-->
-<!--        </plugins>-->
-<!--    </build>-->
+        <build>
+            <plugins>
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                </plugin>
+                <plugin>
+                    <groupId>org.jooq</groupId>
+                    <artifactId>jooq-codegen-maven</artifactId>
+                    <version>${jooq.version}</version>
+                    <dependencies>
+                        <dependency>
+                            <groupId>org.springframework.boot</groupId>
+                            <artifactId>spring-boot</artifactId>
+                            <version>2.1.5.RELEASE</version>
+                        </dependency>
+                    </dependencies>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>generate</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                    <configuration>
+                        <skip>true</skip>
+                        <jdbc>
+                            <driver>org.postgresql.Driver</driver>
+                            <url>${jooq.url}</url>
+                            <user>${jooq.login}</user>
+                            <password>${jooq.password}</password>
+                        </jdbc>
+                        <generator>
+                            <generate>
+<!--                                <routines>false</routines>-->
+<!--                                <sequences>false</sequences>-->
+<!--                                <records>false</records>-->
+<!--                                <udts>false</udts>-->
+<!--                                <pojos>false</pojos>-->
+<!--                                <immutablePojos>false</immutablePojos>-->
+<!--                                <interfaces>false</interfaces>-->
+<!--                                <daos>false</daos>-->
+<!--                                <jpaAnnotations>false</jpaAnnotations>-->
+<!--                                <validationAnnotations>false</validationAnnotations>-->
+<!--                                <globalObjectReferences>false</globalObjectReferences>-->
+<!--                                <deprecated>false</deprecated>-->
+<!--                                <instanceFields>true</instanceFields>-->
+<!--                                <generatedAnnotation>false</generatedAnnotation>-->
+                            </generate>
+                            <database>
+                                <name>org.jooq.util.postgres.PostgresDatabase</name>
+                                <includes>messages | posts | photos | products </includes>
+<!--                                <exludes></exludes>-->
+                                <inputSchema>public</inputSchema>
+                            </database>
+                            <target>
+                                <packageName>com.example.stline.db</packageName>
+                                <directory>src/main/java</directory>
+                            </target>
+                        </generator>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </build>
 </project>
-

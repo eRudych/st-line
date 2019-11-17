@@ -1,23 +1,20 @@
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
     <head>
         <script th:src="@{/static/v2/js/lib/angular.min.js}"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://cdn.ckeditor.com/4.11.1/standard/ckeditor.js"></script>
         <script th:src="@{/static/v2/js/lib/ui-bootstrap-tpls-2.5.0.min.js}"></script>
-        <script th:src="@{/static/v2/js/app/app.js}"></script>
         <link th:href="@{/static/v2/css/app/app_style.css}" rel="stylesheet"/>
+        <script th:src="@{/static/v2/js/lib/angular.min.js}"></script>
+        <script th:src="@{/static/v2/js/app/controllers.js}"></script>
         <link rel="dns-prefetch" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
-        <link rel="shortcut icon" href="{{ asset('images/favicon.ico') }}">
-        <meta name="Keywords"
-              content="Кенгурятник, Дуга, Кенгурин, Обвес, Передняя защита, Губа, Обводка, Ус, Усы, ARP(Турция), St-line, автоакссесуары,front bumper protection, rear bumper protection, sills, roof rails, chandeliers, stainless steel products, стлайн, ст-лайн, stline">
-        <meta name="author" content="eliz">
     </head>
     <body>
         <div class="row" th:fragment="header">
-            <div class="col-md-1">
-            </div>
+            <div class="col-md-1"></div>
             <div class="col-md-9">
                 <nav class="site-header py-1">
                     <div class="container d-flex flex-column flex-md-row justify-content-between">
@@ -26,21 +23,16 @@
                         </nav>
                         <a class="py-2 d-none d-md-inline-block" href="#"><i class="fas fa-envelope"></i>st-line@i.ua</a>
                         <a class="py-2 d-none d-md-inline-block" href="#"><i class="fab fa-skype"></i>st-line@mail.ru</a>
-                        <a class="py-2 d-none d-md-inline-block" href="https://www.facebook.com/vadim.troyan.77" target="_blank">
-                            <i class="fab fa-facebook"></i>
-                        </a>
-                        <a class="py-2 d-none d-md-inline-block" href="https://plus.google.com/112045318869829258987" target="_blank">
-                            <i class="fab fa-google-plus-g"></i>
-                        </a>
-                        <a class="py-2 d-none d-md-inline-block" href="https://www.youtube.com/channel/UC1kX8SSPAU8RDW4-MGur3FA" target="_blank">
-                            <i class="fab fa-youtube"></i>
-                        </a>
-                        <a class="py-2 d-none d-md-inline-block" href="https://www.instagram.com/uk_vinnitsa/" target="_blank">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a class="py-2 d-none d-md-inline-block" href="https://t.me/stlinevn" target="_blank">
-                            <i class="fas fa-paper-plane"></i>
-                        </a>
+                        <a class="py-2 d-none d-md-inline-block" href="https://www.facebook.com/vadim.troyan.77"
+                           target="_blank"><i class="fab fa-facebook"></i></a>
+                        <a class="py-2 d-none d-md-inline-block" href="https://plus.google.com/112045318869829258987"
+                           target="_blank"><i class="fab fa-google-plus-g"></i></a>
+                        <a class="py-2 d-none d-md-inline-block" href="https://www.youtube.com/channel/UC1kX8SSPAU8RDW4-MGur3FA"
+                           target="_blank"><i class="fab fa-youtube"></i></a>
+                        <a class="py-2 d-none d-md-inline-block" href="https://www.instagram.com/uk_vinnitsa/"
+                           target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a class="py-2 d-none d-md-inline-block" href="https://t.me/stlinevn" target="_blank"><i
+                                class="fas fa-paper-plane"></i></a>
                         <nav class="my-2 my-md-0 mr-md-3">
                             <a class="p-2" href="/ru/">ru</a>
                             <a class="p-2" href="/ua/">ua</a>
@@ -49,24 +41,8 @@
                     </div>
                 </nav>
             </div>
-            <div class="col-md-2">
-            </div>
+            <div class="col-md-2"></div>
         </div>
-        <nav class="site-header sticky-top py-1  d-flex flex-row-reverse nav nav-masthead justify-content-right"
-             style="position: fixed; right:10px">
-            <a href="#" data-toggle="modal" data-target="#exampleModal">
-                <wrapper>
-                    <div class="container d-flex flex-column flex-md-row justify-content-right">
-                        <div class="dws">
-                            <div class="pulse"  style="margin-right:350px; margin-top:150px;">
-                                <div class="phone"><i class="fas fa-comments"></i></div>
-                                <div class="text">Write to us</div>
-                            </div>
-                        </div>
-                    </div>
-                </wrapper>
-            </a>
-        </nav>
         <div id="app">
             <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
                 <div class="container">
@@ -97,5 +73,23 @@
                 </div>
             </nav>
         </div>
+        <br>
+        <div ng-app="app" ng-controller="PostController">
+            <div class="container">
+                <div class="post"  ng-repeat="post in posts">
+                    <div class="alert alert-secondary" role="alert">
+                        <div sec:authorize="isAuthenticated()">
+                            <div class="admin-controlls">
+                                    <button type="button" name="button" class="btn btn-primary">Edit</button>
+                                    <a ng-click="deletePost(post)"><button  type="button" name="button" class="btn btn-danger">Delete</button></a>
+                            </div>
+                        </div>
+                        <h2><a class="text-muted" href="/st-line/posts/{{post.id}}">{{post.title}}</a></h2>
+                        <div>{{post.title}}</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div th:include="html/import/footer"></div>
     </body>
 </html>

@@ -5,7 +5,6 @@ import com.example.stline.service.MessageService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.MediaType;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -20,6 +19,7 @@ public class MessageController {
 
     @PostMapping(consumes = {MediaType.APPLICATION_JSON_VALUE})
     public boolean send(@RequestBody MessageDTO messageDTO){
+        log.info("send message"+ messageDTO.toString());
         return service.create(messageDTO);
     }
 

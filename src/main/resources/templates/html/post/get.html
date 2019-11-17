@@ -1,70 +1,26 @@
 <!DOCTYPE html>
-<html>
-<!--lang="{{ str_replace('_', '-', app()->getLocale()) }}">-->
+<html xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-    <script>
-        function includeHTML() {
-            var z, i, elmnt, file, xhttp;
-            /*loop through a collection of all HTML elements:*/
-            z = document.getElementsByTagName("*");
-            for (i = 0; i < z.length; i++) {
-                elmnt = z[i];
-                /*search for elements with a certain atrribute:*/
-                file = elmnt.getAttribute("w3-include-html");
-                if (file) {
-                    /*make an HTTP request using the attribute value as the file name:*/
-                    xhttp = new XMLHttpRequest();
-                    xhttp.onreadystatechange = function () {
-                        if (this.readyState == 4) {
-                            if (this.status == 200) {
-                                elmnt.innerHTML = this.responseText;
-                            }
-                            if (this.status == 404) {
-                                elmnt.innerHTML = "Page not found.";
-                            }
-                            /*remove the attribute, and call this function once more:*/
-                            elmnt.removeAttribute("w3-include-html");
-                            includeHTML();
-                        }
-                    }
-                    xhttp.open("GET", file, true);
-                    xhttp.send();
-                    /*exit the function:*/
-                    return;
-                }
-            }
-        };
-    </script>
+    <script th:src="@{/static/v2/js/lib/angular.min.js}"></script>
+<!--    <script th:src="@{/static/v2/js/app/post.js}"></script>-->
 </head>
-<body>
-<div w3-include-html="appStyle.html"></div>
-<div w3-include-html="links.html"></div>
-<div w3-include-html="header.html"></div>
+<body ng-app="" ng-controller="">
+<div th:include="html/import/header"></div>
 <h1>Get Post Page</h1>
-@extends('layouts.app')
-
-@section('content')
 <div class="container">
-    @if(Auth::check() && Auth::user()->id == $post->author)
     <div class="admin-controlls">
-        <a href="../../post/edit/{{id}}">
-            <button type="button" name="button" class="btn btn-primary">Edit</button>
-        </a>
-        <a href="../../post/remove/{{id}}">
-            <button type="button" name="button" class="btn btn-danger">Delete</button>
-        </a>
+            <button type="button" name="button" class="btn btn-primary"  ng-click="editPost()">Edit</button>
+            <button type="button" name="button" class="btn btn-danger" ng-click="removePost(post)">Delete</button>
     </div>
-    @endif
     <div class="alert alert-secondary" role="alert">
-        <div class="post">
-            <h1>{{title}}</h1>
+        <div class="post" ng-repeat="post in posts">
+            <h1>{{post.title}}</h1>
             <div>
-                <p class="card-text text-muted" style="float: right"><h3>{!!$post->text!!}</h3></p>
+                <p class="card-text text-muted"><h3>{{post.text}}</h3></p>
             </div>
         </div>
     </div>
 </div>
-@endsection
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdn.ckeditor.com/4.11.1/standard/ckeditor.js"></script>
@@ -75,12 +31,7 @@
     })
 </script>
 
-<div w3-include-html="footer.html"></div>
-
-<script>
-    includeHTML();
-</script>
+<div th:include="html/import/footer"></div>
 </body>
 </html>
-@endsection
 

@@ -1,6 +1,7 @@
 package com.example.stline.service.impl;
 
 import com.example.stline.dto.PhotoDTO;
+import com.example.stline.entity.Photo;
 import com.example.stline.entity.Product;
 import com.example.stline.mapper.PhotoMapper;
 import com.example.stline.repository.PhotoRepository;
@@ -22,7 +23,7 @@ public class PhotoServiceImpl implements PhotoService {
     private final PhotoMapper mapper;
 
     @Override
-    public List<PhotoDTO> getAll(Product product) {
-        return repository.getAll(product).stream().map(mapper::toDto).collect(Collectors.toList());
+    public List<Photo> getAll(Product product) {
+        return repository.getAll(product);
     }
 }

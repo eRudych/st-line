@@ -1,6 +1,7 @@
 package com.example.stline.service.impl;
 
 import com.example.stline.dto.PostDTO;
+import com.example.stline.entity.Post;
 import com.example.stline.mapper.PostMapper;
 import com.example.stline.repository.PostRepository;
 import com.example.stline.service.PostService;
@@ -11,7 +12,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
@@ -23,31 +23,33 @@ public class PostServiceImpl implements PostService {
 
     @Override
     @Transactional
-    public PostDTO create(PostDTO post) {
-        return mapper.toDto(repository.create(mapper.toEntity(post)));
+    public Post create(PostDTO postDTO) {
+        log.info("create post "+ postDTO.toString());
+        return repository.create(mapper.toEntity(postDTO));
     }
 
     @Override
     @Transactional
-    public PostDTO update(PostDTO post) {
-        if(repository.update(mapper.toEntity(post)))
-            return mapper.toDto(repository.get(post.getId()));
+    public Post update(Post post) {
+        if(repository.update(post))
+            return repository.get(post.getId());
         return null;
     }
 
     @Override
-    public PostDTO get(Long id) {
-        return mapper.toDto(repository.get(id));
+    public Post get(Long id) {
+        return repository.get(id);
     }
 
     @Override
-    public List<PostDTO> getAll() {
-        return repository.getAll().stream().map(mapper::toDto).collect(Collectors.toList());
+    public List<Post> getAll() {
+        return repository.getAll();
     }
 
     @Override
     @Transactional
     public boolean remove(Long id) {
+        log.info("remove post "+id);
         return repository.remove(id);
     }
 }

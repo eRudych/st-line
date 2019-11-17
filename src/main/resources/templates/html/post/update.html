@@ -1,71 +1,32 @@
 <!DOCTYPE html>
-<html>
-<!--lang="{{ str_replace('_', '-', app()->getLocale()) }}">-->
+<html xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-    <script>
-        function includeHTML() {
-            var z, i, elmnt, file, xhttp;
-            /*loop through a collection of all HTML elements:*/
-            z = document.getElementsByTagName("*");
-            for (i = 0; i < z.length; i++) {
-                elmnt = z[i];
-                /*search for elements with a certain atrribute:*/
-                file = elmnt.getAttribute("w3-include-html");
-                if (file) {
-                    /*make an HTTP request using the attribute value as the file name:*/
-                    xhttp = new XMLHttpRequest();
-                    xhttp.onreadystatechange = function () {
-                        if (this.readyState == 4) {
-                            if (this.status == 200) {
-                                elmnt.innerHTML = this.responseText;
-                            }
-                            if (this.status == 404) {
-                                elmnt.innerHTML = "Page not found.";
-                            }
-                            /*remove the attribute, and call this function once more:*/
-                            elmnt.removeAttribute("w3-include-html");
-                            includeHTML();
-                        }
-                    }
-                    xhttp.open("GET", file, true);
-                    xhttp.send();
-                    /*exit the function:*/
-                    return;
-                }
-            }
-        };
-    </script>
 </head>
 <body>
-<div w3-include-html="appStyle.html"></div>
-<div w3-include-html="links.html"></div>
-<div w3-include-html="header.html"></div>
-<h1>Create Post Page</h1>
-@extends('layouts.app')
+<div th:include="html/import/header"></div>
+<h1>UPDATE Post Page</h1>
 
-@section('content')
 <div class="container">
-    <h1>Edit post</h1>
-    <form class="" action="../../post/update" method="post">
-        <input type="hidden" name="id" value="{{id}}">
+    <h1>Update post</h1>
+    <form ng-submit="submitPost()">
         <div class="form-group">
             <label>Title</label>
-            <textarea  name="title" rows="1" cols="1" placeholder="Title" class="form-control"> {{title}}</textarea>
+            <textarea  name="title" type="text" rows="1" cols="1" ng-model="postForm.title" placeholder="Title" class="form-control"  required="required"></textarea>
         </div>
         <div class="form-group">
             <label>Description</label>
-            <textarea name="description" rows="8" cols="80" placeholder="Description" class="form-control">{{description}}</textarea>
+            <textarea name="description" type="text" rows="8" cols="80" ng-model="postForm.description" placeholder="Description" class="form-control" required="required"></textarea>
         </div>
         <div class="form-group">
             <label>Full text</label>
-            <textarea name="text"  rows="8" cols="80" placeholder="Full text" class="form-control">{{text}}</textarea>
+            <textarea name="text"  rows="8"  type="text" cols="80" ng-model="postForm.text" placeholder="Full text" class="form-control" required="required"></textarea>
         </div>
-        {{csrf_field()}}
         <div class="form-group">
-            <button type="submit" name="submit" class="btn btn-info" class="form-control">Update post</button>
+            <input type="submit" name="submit" class="btn btn-info form-control" >Update post</input>
         </div>
     </form>
 </div>
+
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdn.ckeditor.com/4.11.1/standard/ckeditor.js"></script>
@@ -76,12 +37,8 @@
     })
 </script>
 
-<div w3-include-html="footer.html"></div>
-
-<script>
-    includeHTML();
-</script>
+<div th:include="html/import/footer"></div>
 </body>
 </html>
-@endsection
+
 

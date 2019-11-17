@@ -1,6 +1,6 @@
 package com.example.stline.repository.impl;
 
-import com.example.stline.db.public_.tables.records.MessagesRecord;
+import com.example.stline.db.tables.records.MessagesRecord;
 import com.example.stline.entity.Message;
 import com.example.stline.repository.MessageRepository;
 import lombok.RequiredArgsConstructor;
@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-import static com.example.stline.db.public_.tables.Messages.MESSAGES;
+import static com.example.stline.db.tables.Messages.MESSAGES;
 
 @Repository
 @RequiredArgsConstructor
@@ -19,11 +19,12 @@ public class MessageRepositoryImpl implements MessageRepository {
 
     private final DSLContext dsl;
 
-    private Integer insert(Message message) {
+    private Long insert(Message message) {
         MessagesRecord messagesRecord = dsl.insertInto(MESSAGES, MESSAGES.NAME, MESSAGES.PHONE, MESSAGES.MESSAGE)
                 .values(message.getName(), message.getPhone(), message.getMessage())
                 .returning(MESSAGES.ID)
                 .fetchOne();
+        message.setId(messagesRecord.getValue( MESSAGES.ID));
         log.info("Insert into db: {}", message.toString());
         return messagesRecord.getValue(MESSAGES.ID);
     }
@@ -42,7 +43,7 @@ public class MessageRepositoryImpl implements MessageRepository {
     public boolean remove(Long id) {
         try {
             dsl.deleteFrom(MESSAGES)
-                    .where(MESSAGES.ID.eq(Math.toIntExact(id))).execute();
+                    .where(MESSAGES.ID.eq(id)).execute();
             return true;
         } catch (Exception ex) {
             return false;
@@ -51,7 +52,7 @@ public class MessageRepositoryImpl implements MessageRepository {
 
     @Override
     public List<Message> getAll() {
-        return dsl.selectFrom(MESSAGES)
+        return dsl.selectFrom(MESSAGES).orderBy(MESSAGES.ID.desc())
                 .fetchInto(Message.class);
     }
 }

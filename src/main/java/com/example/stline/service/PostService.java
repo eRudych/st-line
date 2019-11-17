@@ -1,19 +1,20 @@
 package com.example.stline.service;
 
 import com.example.stline.dto.PostDTO;
+import com.example.stline.entity.Post;
 
 import java.util.List;
 
 
 public interface PostService extends BaseService {
 
-    PostDTO create(PostDTO post);
+    Post create(PostDTO post);
 
-    PostDTO update(PostDTO post);
+    Post update(Post post);
 
-    PostDTO get(Long id);
+    Post get(Long id);
 
-    List<PostDTO> getAll();
+    List<Post> getAll();
 
     boolean remove(Long id);
 }

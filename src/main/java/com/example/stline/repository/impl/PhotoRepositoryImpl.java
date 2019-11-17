@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-import static com.example.stline.db.public_.tables.Photos.PHOTOS;
+import static com.example.stline.db.tables.Photos.PHOTOS;
 
 @Repository
 @RequiredArgsConstructor
@@ -22,7 +22,7 @@ public class PhotoRepositoryImpl implements PhotoRepository {
     @Override
     public List<Photo> getAll(Product product) {
         return dsl.selectFrom(PHOTOS)
-                .where(PHOTOS.PRODUCT.eq(Math.toIntExact(product.getId())))
+                .where(PHOTOS.PRODUCT.eq(product.getId()))
                 .fetchInto(Photo.class);
     }
 }

@@ -1,6 +1,7 @@
 package com.example.stline.service.impl;
 
 import com.example.stline.dto.MessageDTO;
+import com.example.stline.entity.Message;
 import com.example.stline.mapper.MessageMapper;
 import com.example.stline.repository.MessageRepository;
 import com.example.stline.service.MessageService;
@@ -11,7 +12,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
@@ -24,6 +24,7 @@ public class MessageServiceImpl implements MessageService {
     @Override
     @Transactional
     public boolean create(MessageDTO messageDTO) {
+        log.info("create message "+ messageDTO.toString());
         return repository.create(mapper.toEntity(messageDTO));
     }
 
@@ -34,8 +35,8 @@ public class MessageServiceImpl implements MessageService {
     }
 
     @Override
-    public List<MessageDTO> getAll() {
-        return repository.getAll().stream().map(mapper::toDto).collect(Collectors.toList());
+    public List<Message> getAll() {
+        return repository.getAll();
     }
 
 }

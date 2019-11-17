@@ -1,11 +1,15 @@
 package com.example.stline.entity;
 
-import lombok.Value;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-@Value
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
 public class Message implements BaseEntity {
-    private final Long id;
-    private final String name;
-    private final String phone;
-    private final String message;
+    private Long id;
+    private String name;
+    private String phone;
+    private String message;
 }

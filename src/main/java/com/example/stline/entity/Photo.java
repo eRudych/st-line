@@ -1,11 +1,15 @@
 package com.example.stline.entity;
 
-import lombok.Value;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-@Value
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
 public class Photo implements BaseEntity{
-    private final Long id;
-    private final Product product;
-    private final String model;
-    private final String brand;
+    private Long id;
+    private Product product;
+    private String model;
+    private String brand;
 }
