@@ -8,6 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.jooq.DSLContext;
 import org.springframework.stereotype.Repository;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 import static com.example.stline.db.tables.Messages.MESSAGES;
@@ -20,8 +21,8 @@ public class MessageRepositoryImpl implements MessageRepository {
     private final DSLContext dsl;
 
     private Long insert(Message message) {
-        MessagesRecord messagesRecord = dsl.insertInto(MESSAGES, MESSAGES.NAME, MESSAGES.PHONE, MESSAGES.MESSAGE)
-                .values(message.getName(), message.getPhone(), message.getMessage())
+        MessagesRecord messagesRecord = dsl.insertInto(MESSAGES, MESSAGES.NAME, MESSAGES.PHONE, MESSAGES.MESSAGE,MESSAGES.CREATED_AT)
+                .values(message.getName(), message.getPhone(), message.getMessage(), message.getDate())
                 .returning(MESSAGES.ID)
                 .fetchOne();
         message.setId(messagesRecord.getValue( MESSAGES.ID));
@@ -53,6 +54,13 @@ public class MessageRepositoryImpl implements MessageRepository {
     @Override
     public List<Message> getAll() {
         return dsl.selectFrom(MESSAGES).orderBy(MESSAGES.ID.desc())
-                .fetchInto(Message.class);
+                .fetch(r->{
+                    Message message = new Message();
+                    message.setId(r.get(0,Long.class));
+                    message.setName(r.get(1,String.class));
+                    message.setPhone(r.get(2,String.class));
+                    message.setMessage(r.get(3,String.class));
+                    message.setDate(r.get(4, Timestamp.class));
+                    return  message; } );
     }
 }

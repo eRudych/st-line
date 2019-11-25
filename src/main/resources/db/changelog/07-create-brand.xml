@@ -1,19 +1,13 @@
 <databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
-    <changeSet author="root" id="03">
-        <createTable tableName="photos">
+    <changeSet author="root" id="07">
+        <createTable tableName="brands">
             <column name="id" type="bigint" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false" />
             </column>
             <column name="brand" type="varchar(255)">
                 <constraints nullable="false" />
-            </column>
-            <column name="model" type="varchar(255)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="product" type="bigint">
-                <constraints nullable="false" foreignKeyName="fk_photos_products" references="products(id)"/>
             </column>
         </createTable>
     </changeSet>

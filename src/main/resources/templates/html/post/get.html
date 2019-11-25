@@ -1,23 +1,20 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.w3.org/1999/xhtml">
+<html xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
     <script th:src="@{/static/v2/js/lib/angular.min.js}"></script>
-<!--    <script th:src="@{/static/v2/js/app/post.js}"></script>-->
+    <script th:src="@{/static/v2/js/app/controllers.js}"></script>
 </head>
-<body ng-app="" ng-controller="">
+<body ng-app="app" ng-controller="PostController">
 <div th:include="html/import/header"></div>
 <h1>Get Post Page</h1>
 <div class="container">
-    <div class="admin-controlls">
-            <button type="button" name="button" class="btn btn-primary"  ng-click="editPost()">Edit</button>
-            <button type="button" name="button" class="btn btn-danger" ng-click="removePost(post)">Delete</button>
-    </div>
-    <div class="alert alert-secondary" role="alert">
-        <div class="post" ng-repeat="post in posts">
+    <div class="alert alert-secondary" role="alert" ng-init="getPost()" >
+        <div class="post">
             <h1>{{post.title}}</h1>
             <div>
                 <p class="card-text text-muted"><h3>{{post.text}}</h3></p>
             </div>
+            <p class="card-text text-muted"><h3>{{post.date}}</h3></p>
         </div>
     </div>
 </div>

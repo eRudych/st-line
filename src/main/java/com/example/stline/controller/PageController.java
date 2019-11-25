@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Controller
-@RequestMapping("st-line/{pageName}")
+@RequestMapping({"st-line/{pageName}"})
 @Slf4j
 public class PageController {
 
@@ -19,6 +19,7 @@ public class PageController {
     private void init() {
         mapping = new HashMap<>();
 
+        mapping.put("index", "index");
         //main pages
         mapping.put("main", "main");
         mapping.put("about", "about");
@@ -26,15 +27,16 @@ public class PageController {
         mapping.put("news", "html/post/posts");
 
         //import
-        mapping.put("header", "html/import/header");
-        mapping.put("footer", "html/import/footer");
-        mapping.put("appStyle", "html/import/appStyle");
-        mapping.put("messageForm", "html/import/messageForm");
+        mapping.put("/header", "html/import/header");
+        mapping.put("/footer", "html/import/footer");
+        mapping.put("/appStyle", "html/import/appStyle");
+        mapping.put("/messageForm", "html/import/messageForm");
 
         //post
         mapping.put("createPost", "html/post/create");
-        mapping.put("updatePost", "html/post/update");
-        mapping.put("getPost", "html/post/get");
+        mapping.put("test", "html/post/test");
+        mapping.put("editPost", "html/post/edit");
+        mapping.put("post", "html/post/get");
 //        mapping.put("getPost/{id}", "html/post/get");
 
         mapping.put("send", "html/message/sendMessage");

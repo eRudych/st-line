@@ -5,263 +5,263 @@
         <link th:href="@{/static/v2/css/app/main.css}" rel="stylesheet"/>
     </head>
     <body>
-    <div th:include="html/import/header"></div>
-    <div th:include="html/import/messageForm"></div>
-        <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light "
-             style=" background-image:url({{asset('images/fon.jpg')}})">
-            <div class="col-md-5 p-lg-5 mx-auto my-5" style=" background-color:#f8fafc">
-                <h3 class="display-6 font-weight-normal">Продукция</h3>
-                <p class="lead font-weight-normal">качественный и стильный обвес минимизирует риски, связанные с ездой в
-                    интенсивном городском потоке и за его пределами, обеспечивает автомобилю необходимую защиту, а вместе с ней
-                    и длительную эксплуатацию</p>
-                <a class="btn btn-info" href="https://drive.google.com/drive/folders/0B3SULnEGhz8lRmVhS0tvYkhKUTg"
-                   target="_blank">Фотогалерея</a>
+    <a name="products"></a>
+        <div class="jumbotron jumbotron-fluid">
+            <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center has-background-grey-dark "
+                 style=" background-image:url({{asset('images/fon.jpg')}})"  th:fragment="products">
+                <div class="col-md-5 p-lg-5 mx-auto my-5" style=" background-color:#f8fafc">
+                    <h3 class="display-6 font-weight-normal">Продукция</h3>
+                    <p class="lead font-weight-normal">качественный и стильный обвес минимизирует риски, связанные с ездой в
+                        интенсивном городском потоке и за его пределами, обеспечивает автомобилю необходимую защиту, а вместе с ней
+                        и длительную эксплуатацию</p>
+                    <a class="btn btn-info" href="https://drive.google.com/drive/folders/0B3SULnEGhz8lRmVhS0tvYkhKUTg"
+                       target="_blank">Фотогалерея</a>
+                </div>
+                <div class="product-device shadow-sm d-none d-md-block"></div>
+                <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
             </div>
-            <div class="product-device shadow-sm d-none d-md-block"></div>
-            <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
-        </div>
-        <div class="album py-5 bg-light">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="text-center">
-                            <div class="card" style="width: 18rem;">
-                                <img src="{{asset('images/products/kengur/main.jpg')}}" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <p class="card-text">Кенгурятники</p>
-                                </div>
-                            </div>
-                            <button class="btn btn-sm btn-outline-secondary" type="button" data-toggle="collapse"
-                                    data-target=".multi-collapse1" aria-expanded="false"
-                                    aria-controls="multiCollapseExample1 multiCollapseExample2 multiCollapseExample3 multiCollapseExample20 multiCollapseExample21 multiCollapseExample22 multiCollapseExample23 multiCollapseExample24 multiCollapseExample25">
-                                посмотреть ещё больше фото
-                            </button>
-                            <div class="row">
-                                <div class="collapse multi-collapse1" id="multiCollapseExample1">
-                                    <div class="card card-body">
-                                        <img src="{{asset('images/products/kengur/branch-one.jpg')}}" class="card-img-top"
-                                             alt="...">
+            <div class="album py-5 has-background-grey-dark">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="text-center">
+                                <div class="card" style="width: 18rem;">
+                                    <img src="{{asset('images/products/kengur/main.jpg')}}" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <p class="card-text">Кенгурятники</p>
                                     </div>
                                 </div>
-                                <div class="collapse multi-collapse1" id="multiCollapseExample2">
-                                    <div class="card card-body">
-                                        <img src="{{asset('images/products/kengur/branch-two.jpg')}}" class="card-img-top"
-                                             alt="...">
+                                <button class="btn btn-sm btn-outline-secondary" type="button" data-toggle="collapse"
+                                        data-target=".multi-collapse1" aria-expanded="false"
+                                        aria-controls="multiCollapseExample1 multiCollapseExample2 multiCollapseExample3 multiCollapseExample20 multiCollapseExample21 multiCollapseExample22 multiCollapseExample23 multiCollapseExample24 multiCollapseExample25">
+                                    посмотреть ещё больше фото
+                                </button>
+                                <div class="row">
+                                    <div class="collapse multi-collapse1" id="multiCollapseExample1">
+                                        <div class="card card-body">
+                                            <img src="{{asset('images/products/kengur/branch-one.jpg')}}" class="card-img-top"
+                                                 alt="...">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="collapse multi-collapse1" id="multiCollapseExample3">
-                                    <div class="card card-body">
-                                        <img src="{{asset('images/products/kengur/branch-three.jpg')}}" class="card-img-top"
-                                             alt="...">
+                                    <div class="collapse multi-collapse1" id="multiCollapseExample2">
+                                        <div class="card card-body">
+                                            <img src="{{asset('images/products/kengur/branch-two.jpg')}}" class="card-img-top"
+                                                 alt="...">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="collapse multi-collapse1" id="multiCollapseExample20">
-                                    <div class="card card-body">
-                                        <img src="{{asset('images/products/kengur/branch4.jpg')}}" class="card-img-top"
-                                             alt="...">
+                                    <div class="collapse multi-collapse1" id="multiCollapseExample3">
+                                        <div class="card card-body">
+                                            <img src="{{asset('images/products/kengur/branch-three.jpg')}}" class="card-img-top"
+                                                 alt="...">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="collapse multi-collapse1" id="multiCollapseExample21">
-                                    <div class="card card-body">
-                                        <img src="{{asset('images/products/kengur/branch5.jpg')}}" class="card-img-top"
-                                             alt="...">
+                                    <div class="collapse multi-collapse1" id="multiCollapseExample20">
+                                        <div class="card card-body">
+                                            <img src="{{asset('images/products/kengur/branch4.jpg')}}" class="card-img-top"
+                                                 alt="...">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="collapse multi-collapse1" id="multiCollapseExample22">
-                                    <div class="card card-body">
-                                        <img src="{{asset('images/products/kengur/branch6.jpg')}}" class="card-img-top"
-                                             alt="...">
+                                    <div class="collapse multi-collapse1" id="multiCollapseExample21">
+                                        <div class="card card-body">
+                                            <img src="{{asset('images/products/kengur/branch5.jpg')}}" class="card-img-top"
+                                                 alt="...">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="collapse multi-collapse1" id="multiCollapseExample23">
-                                    <div class="card card-body">
-                                        <img src="{{asset('images/products/kengur/branch7.jpg')}}" class="card-img-top"
-                                             alt="...">
+                                    <div class="collapse multi-collapse1" id="multiCollapseExample22">
+                                        <div class="card card-body">
+                                            <img src="{{asset('images/products/kengur/branch6.jpg')}}" class="card-img-top"
+                                                 alt="...">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="collapse multi-collapse1" id="multiCollapseExample23">
-                                    <div class="card card-body">
-                                        <img src="{{asset('images/products/kengur/branch8.jpg')}}" class="card-img-top"
-                                             alt="...">
+                                    <div class="collapse multi-collapse1" id="multiCollapseExample23">
+                                        <div class="card card-body">
+                                            <img src="{{asset('images/products/kengur/branch7.jpg')}}" class="card-img-top"
+                                                 alt="...">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="collapse multi-collapse1" id="multiCollapseExample24">
-                                    <div class="card card-body">
-                                        <img src="{{asset('images/products/kengur/branch9.jpg')}}" class="card-img-top"
-                                             alt="...">
+                                    <div class="collapse multi-collapse1" id="multiCollapseExample23">
+                                        <div class="card card-body">
+                                            <img src="{{asset('images/products/kengur/branch8.jpg')}}" class="card-img-top"
+                                                 alt="...">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="collapse multi-collapse1" id="multiCollapseExample25">
-                                    <div class="card card-body">
-                                        <img src="{{asset('images/products/kengur/branch10.jpg')}}" class="card-img-top"
-                                             alt="...">
+                                    <div class="collapse multi-collapse1" id="multiCollapseExample24">
+                                        <div class="card card-body">
+                                            <img src="{{asset('images/products/kengur/branch9.jpg')}}" class="card-img-top"
+                                                 alt="...">
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="text-center">
-                            <div class="card" style="width: 18rem;">
-                                <img src="{{asset('images/products/front-bumper/main.jpg')}}" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <p class="card-text">Защита переднего бампера</p>
-                                </div>
-                            </div>
-                            <button class="btn btn-sm btn-outline-secondary" type="button" data-toggle="collapse"
-                                    data-target=".multi-collapse2" aria-expanded="false"
-                                    aria-controls="multiCollapseExample4 multiCollapseExample18 multiCollapseExample26 multiCollapseExample27 multiCollapseExample28 multiCollapseExample29 multiCollapseExample30 multiCollapseExample31 multiCollapseExample32 multiCollapseExample33">
-                                посмотреть ещё больше фото
-                            </button>
-                            <div class="row">
-                                <div class="collapse multi-collapse2" id="multiCollapseExample4">
-                                    <div class="card card-body">
-                                        <img src="{{asset('images/products/front-bumper/branch-one.jpg')}}" class="card-img-top"
-                                             alt="...">
-                                    </div>
-                                </div>
-                                <div class="collapse multi-collapse2" id="multiCollapseExample18">
-                                    <div class="card card-body">
-                                        <img src="{{asset('images/products/front-bumper/branch-two.jpg')}}" class="card-img-top"
-                                             alt="...">
-                                    </div>
-                                </div>
-                                <div class="collapse multi-collapse2" id="multiCollapseExample26">
-                                    <div class="card card-body">
-                                        <img src="{{asset('images/products/front-bumper/branch3.jpg')}}" class="card-img-top"
-                                             alt="...">
-                                    </div>
-                                </div>
-                                <div class="collapse multi-collapse2" id="multiCollapseExample27">
-                                    <div class="card card-body">
-                                        <img src="{{asset('images/products/front-bumper/branch4.jpg')}}" class="card-img-top"
-                                             alt="...">
-                                    </div>
-                                </div>
-                                <div class="collapse multi-collapse2" id="multiCollapseExample28">
-                                    <div class="card card-body">
-                                        <img src="{{asset('images/products/front-bumper/branch5.jpg')}}" class="card-img-top"
-                                             alt="...">
-                                    </div>
-                                </div>
-                                <div class="collapse multi-collapse2" id="multiCollapseExample29">
-                                    <div class="card card-body">
-                                        <img src="{{asset('images/products/front-bumper/branch6.jpg')}}" class="card-img-top"
-                                             alt="...">
-                                    </div>
-                                </div>
-                                <div class="collapse multi-collapse2" id="multiCollapseExample30">
-                                    <div class="card card-body">
-                                        <img src="{{asset('images/products/front-bumper/branch7.jpg')}}" class="card-img-top"
-                                             alt="...">
-                                    </div>
-                                </div>
-                                <div class="collapse multi-collapse2" id="multiCollapseExample31">
-                                    <div class="card card-body">
-                                        <img src="{{asset('images/products/front-bumper/branch8.jpg')}}" class="card-img-top"
-                                             alt="...">
-                                    </div>
-                                </div>
-                                <div class="collapse multi-collapse2" id="multiCollapseExample32">
-                                    <div class="card card-body">
-                                        <img src="{{asset('images/products/front-bumper/branch9.jpg')}}" class="card-img-top"
-                                             alt="...">
-                                    </div>
-                                </div>
-                                <div class="collapse multi-collapse2" id="multiCollapseExample33">
-                                    <div class="card card-body">
-                                        <img src="{{asset('images/products/front-bumper/branch10.jpg')}}" class="card-img-top"
-                                             alt="...">
+                                    <div class="collapse multi-collapse1" id="multiCollapseExample25">
+                                        <div class="card card-body">
+                                            <img src="{{asset('images/products/kengur/branch10.jpg')}}" class="card-img-top"
+                                                 alt="...">
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="text-center">
-                            <div class="card" style="width: 18rem;">
-                                <img src="{{asset('images/products/back-bumper/main.jpg')}}" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <p class="card-text">Защита заднего бампера</p>
+                        <div class="col-md-4">
+                            <div class="text-center">
+                                <div class="card" style="width: 18rem;">
+                                    <img src="{{asset('images/products/front-bumper/main.jpg')}}" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <p class="card-text">Защита переднего бампера</p>
+                                    </div>
+                                </div>
+                                <button class="btn btn-sm btn-outline-secondary" type="button" data-toggle="collapse"
+                                        data-target=".multi-collapse2" aria-expanded="false"
+                                        aria-controls="multiCollapseExample4 multiCollapseExample18 multiCollapseExample26 multiCollapseExample27 multiCollapseExample28 multiCollapseExample29 multiCollapseExample30 multiCollapseExample31 multiCollapseExample32 multiCollapseExample33">
+                                    посмотреть ещё больше фото
+                                </button>
+                                <div class="row">
+                                    <div class="collapse multi-collapse2" id="multiCollapseExample4">
+                                        <div class="card card-body">
+                                            <img src="{{asset('images/products/front-bumper/branch-one.jpg')}}" class="card-img-top"
+                                                 alt="...">
+                                        </div>
+                                    </div>
+                                    <div class="collapse multi-collapse2" id="multiCollapseExample18">
+                                        <div class="card card-body">
+                                            <img src="{{asset('images/products/front-bumper/branch-two.jpg')}}" class="card-img-top"
+                                                 alt="...">
+                                        </div>
+                                    </div>
+                                    <div class="collapse multi-collapse2" id="multiCollapseExample26">
+                                        <div class="card card-body">
+                                            <img src="{{asset('images/products/front-bumper/branch3.jpg')}}" class="card-img-top"
+                                                 alt="...">
+                                        </div>
+                                    </div>
+                                    <div class="collapse multi-collapse2" id="multiCollapseExample27">
+                                        <div class="card card-body">
+                                            <img src="{{asset('images/products/front-bumper/branch4.jpg')}}" class="card-img-top"
+                                                 alt="...">
+                                        </div>
+                                    </div>
+                                    <div class="collapse multi-collapse2" id="multiCollapseExample28">
+                                        <div class="card card-body">
+                                            <img src="{{asset('images/products/front-bumper/branch5.jpg')}}" class="card-img-top"
+                                                 alt="...">
+                                        </div>
+                                    </div>
+                                    <div class="collapse multi-collapse2" id="multiCollapseExample29">
+                                        <div class="card card-body">
+                                            <img src="{{asset('images/products/front-bumper/branch6.jpg')}}" class="card-img-top"
+                                                 alt="...">
+                                        </div>
+                                    </div>
+                                    <div class="collapse multi-collapse2" id="multiCollapseExample30">
+                                        <div class="card card-body">
+                                            <img src="{{asset('images/products/front-bumper/branch7.jpg')}}" class="card-img-top"
+                                                 alt="...">
+                                        </div>
+                                    </div>
+                                    <div class="collapse multi-collapse2" id="multiCollapseExample31">
+                                        <div class="card card-body">
+                                            <img src="{{asset('images/products/front-bumper/branch8.jpg')}}" class="card-img-top"
+                                                 alt="...">
+                                        </div>
+                                    </div>
+                                    <div class="collapse multi-collapse2" id="multiCollapseExample32">
+                                        <div class="card card-body">
+                                            <img src="{{asset('images/products/front-bumper/branch9.jpg')}}" class="card-img-top"
+                                                 alt="...">
+                                        </div>
+                                    </div>
+                                    <div class="collapse multi-collapse2" id="multiCollapseExample33">
+                                        <div class="card card-body">
+                                            <img src="{{asset('images/products/front-bumper/branch10.jpg')}}" class="card-img-top"
+                                                 alt="...">
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <button class="btn btn-sm btn-outline-secondary" type="button" data-toggle="collapse"
-                                    data-target=".multi-collapse3" aria-expanded="false"
-                                    aria-controls="multiCollapseExample5 multiCollapseExample6 multiCollapseExample34 multiCollapseExample35 multiCollapseExample36 multiCollapseExample37 multiCollapseExample38 multiCollapseExample39 multiCollapseExample40 multiCollapseExample41 multiCollapseExample42">
-                                посмотреть ещё больше фото
-                            </button>
-                            <div class="row">
-                                <div class="collapse multi-collapse3" id="multiCollapseExample5">
-                                    <div class="card card-body">
-                                        <img src="{{asset('images/products/back-bumper/branch-one.jpg')}}" class="card-img-top"
-                                             alt="...">
+                        </div>
+                        <div class="col-md-4">
+                            <div class="text-center">
+                                <div class="card" style="width: 18rem;">
+                                    <img src="{{asset('images/products/back-bumper/main.jpg')}}" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <p class="card-text">Защита заднего бампера</p>
                                     </div>
                                 </div>
-                                <div class="collapse multi-collapse3" id="multiCollapseExample6">
-                                    <div class="card card-body">
-                                        <img src="{{asset('images/products/back-bumper/branch-two.jpg')}}" class="card-img-top"
-                                             alt="...">
+                                <button class="btn btn-sm btn-outline-secondary" type="button" data-toggle="collapse"
+                                        data-target=".multi-collapse3" aria-expanded="false"
+                                        aria-controls="multiCollapseExample5 multiCollapseExample6 multiCollapseExample34 multiCollapseExample35 multiCollapseExample36 multiCollapseExample37 multiCollapseExample38 multiCollapseExample39 multiCollapseExample40 multiCollapseExample41 multiCollapseExample42">
+                                    посмотреть ещё больше фото
+                                </button>
+                                <div class="row">
+                                    <div class="collapse multi-collapse3" id="multiCollapseExample5">
+                                        <div class="card card-body">
+                                            <img src="{{asset('images/products/back-bumper/branch-one.jpg')}}" class="card-img-top"
+                                                 alt="...">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="collapse multi-collapse3" id="multiCollapseExample34">
-                                    <div class="card card-body">
-                                        <img src="{{asset('images/products/back-bumper/branch3.jpg')}}" class="card-img-top"
-                                             alt="...">
+                                    <div class="collapse multi-collapse3" id="multiCollapseExample6">
+                                        <div class="card card-body">
+                                            <img src="{{asset('images/products/back-bumper/branch-two.jpg')}}" class="card-img-top"
+                                                 alt="...">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="collapse multi-collapse3" id="multiCollapseExample35">
-                                    <div class="card card-body">
-                                        <img src="{{asset('images/products/back-bumper/branch4.jpg')}}" class="card-img-top"
-                                             alt="...">
+                                    <div class="collapse multi-collapse3" id="multiCollapseExample34">
+                                        <div class="card card-body">
+                                            <img src="{{asset('images/products/back-bumper/branch3.jpg')}}" class="card-img-top"
+                                                 alt="...">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="collapse multi-collapse3" id="multiCollapseExample36">
-                                    <div class="card card-body">
-                                        <img src="{{asset('images/products/back-bumper/branch5.jpg')}}" class="card-img-top"
-                                             alt="...">
+                                    <div class="collapse multi-collapse3" id="multiCollapseExample35">
+                                        <div class="card card-body">
+                                            <img src="{{asset('images/products/back-bumper/branch4.jpg')}}" class="card-img-top"
+                                                 alt="...">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="collapse multi-collapse3" id="multiCollapseExample37">
-                                    <div class="card card-body">
-                                        <img src="{{asset('images/products/back-bumper/branch6.jpg')}}" class="card-img-top"
-                                             alt="...">
+                                    <div class="collapse multi-collapse3" id="multiCollapseExample36">
+                                        <div class="card card-body">
+                                            <img src="{{asset('images/products/back-bumper/branch5.jpg')}}" class="card-img-top"
+                                                 alt="...">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="collapse multi-collapse3" id="multiCollapseExample38">
-                                    <div class="card card-body">
-                                        <img src="{{asset('images/products/back-bumper/branch7.jpg')}}" class="card-img-top"
-                                             alt="...">
+                                    <div class="collapse multi-collapse3" id="multiCollapseExample37">
+                                        <div class="card card-body">
+                                            <img src="{{asset('images/products/back-bumper/branch6.jpg')}}" class="card-img-top"
+                                                 alt="...">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="collapse multi-collapse3" id="multiCollapseExample39">
-                                    <div class="card card-body">
-                                        <img src="{{asset('images/products/back-bumper/branch8.jpg')}}" class="card-img-top"
-                                             alt="...">
+                                    <div class="collapse multi-collapse3" id="multiCollapseExample38">
+                                        <div class="card card-body">
+                                            <img src="{{asset('images/products/back-bumper/branch7.jpg')}}" class="card-img-top"
+                                                 alt="...">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="collapse multi-collapse3" id="multiCollapseExample40">
-                                    <div class="card card-body">
-                                        <img src="{{asset('images/products/back-bumper/branch9.jpg')}}" class="card-img-top"
-                                             alt="...">
+                                    <div class="collapse multi-collapse3" id="multiCollapseExample39">
+                                        <div class="card card-body">
+                                            <img src="{{asset('images/products/back-bumper/branch8.jpg')}}" class="card-img-top"
+                                                 alt="...">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="collapse multi-collapse3" id="multiCollapseExample41">
-                                    <div class="card card-body">
-                                        <img src="{{asset('images/products/back-bumper/branch10.jpg')}}" class="card-img-top"
-                                             alt="...">
+                                    <div class="collapse multi-collapse3" id="multiCollapseExample40">
+                                        <div class="card card-body">
+                                            <img src="{{asset('images/products/back-bumper/branch9.jpg')}}" class="card-img-top"
+                                                 alt="...">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="collapse multi-collapse3" id="multiCollapseExample42">
-                                    <div class="card card-body">
-                                        <img src="{{asset('images/products/back-bumper/branch11.jpg')}}" class="card-img-top"
-                                             alt="...">
+                                    <div class="collapse multi-collapse3" id="multiCollapseExample41">
+                                        <div class="card card-body">
+                                            <img src="{{asset('images/products/back-bumper/branch10.jpg')}}" class="card-img-top"
+                                                 alt="...">
+                                        </div>
+                                    </div>
+                                    <div class="collapse multi-collapse3" id="multiCollapseExample42">
+                                        <div class="card card-body">
+                                            <img src="{{asset('images/products/back-bumper/branch11.jpg')}}" class="card-img-top"
+                                                 alt="...">
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div th:include="html/import/footer"></div>
             </div>
         </div>
     </body>

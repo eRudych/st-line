@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.w3.org/1999/xhtml">
+<html xmlns:th="http://www.w3.org/1999/xhtml" >
 <head>
     <script th:src="@{/static/v2/js/app/controllers.js}"></script>
 </head>
 <body ng-app="app" ng-controller="MessageController">
-<div th:include="html/import/header"></div>
-<div th:include="html/import/messageForm"></div>
-<div class="bd-example">
+<div class="bd-example" th:fragment="main">
+    <a name="main"></a>
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -54,7 +53,7 @@
 </div>
 <section class="jumbotron text-center">
     <div class="container">
-        <h3 class="text-muted">Мы благодарны, что вы посетили наш сайт</h3>
+        <h3 th:text="#{lang.main_text1}" class="text-muted">Мы благодарны, что вы посетили наш сайт</h3>
         <h3 class="jumbotron-heading text-muted">Компания ST-line - производитель автомобильных аксессуаров из
             нержавеющей стали</h3>
         <hr>
@@ -80,46 +79,38 @@
         <h3 class=" text-muted">Уникальная возможность заработка без вложения первоначального капитала предоставляется
             нашим дилерам и партнерам!!!</h3>
     </div>
-    <div class="row" style="margin-top:30px;">
-        <div class="col-md-3"></div>
-        <div class="col-md-6"><div class="alert alert-primary" role="alert">
-            <form>
-                <div class="form-group">
-                    <label for="exampleFormControlSelect1">Example select</label>
-                    <select class="form-control" id="exampleFormControlSelect1">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                    </select>
+    <div ng-app="app" ng-controller="PhotoController">
+        <div class="post">
+            <div class="row" style="margin-top:30px;">
+                <div class="col-md-3"></div>
+                <div class="col-md-6"><div class="alert alert-primary" role="alert">
+                    <form ng-submit="searchPhoto()">
+                        <div class="form-group" ng-repeat="brand in brands" >
+                            <label for="exampleFormControlSelect1">Select brand</label>
+                            <select class="form-control" ng-model="photo.brand" id="exampleFormControlSelect1">
+                                <option>{{brand.name}}</option>
+                            </select>
+                        </div>
+                        <div class="form-group" ng-repeat="model in models">
+                            <label for="exampleFormControlSelect1">Select model</label>
+                            <select class="form-control" ng-model="photo.model" id="exampleFormControlSelect2">
+                                <option>{{model.name}}</option>
+                            </select>
+                        </div>
+                        <div class="form-group" ng-repeat="product in products">
+                            <label for="exampleFormControlSelect1">Select product</label>
+                            <select class="form-control" ng-model="photo.product" id="exampleFormControlSelect3">
+                                <option>{{product.name}}</option>
+                            </select>
+                        </div>
+                        <button type="submit" value="Submit" class="btn btn-primary">Search</button>
+                    </form>
                 </div>
-                <div class="form-group">
-                    <label for="exampleFormControlSelect1">Example select</label>
-                    <select class="form-control" id="exampleFormControlSelect2">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                    </select>
+                    <div class="col-md-3"></div>
                 </div>
-                <div class="form-group">
-                    <label for="exampleFormControlSelect1">Example select</label>
-                    <select class="form-control" id="exampleFormControlSelect3">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                    </select>
-                </div>
-                <button type="submit" class="btn btn-primary">Search</button>
-            </form>
-        </div></div>
-        <div class="col-md-3"></div>
+            </div>
+        </div>
     </div>
 </section>
-<div th:include="html/import/footer"></div>
 </body>
 </html>

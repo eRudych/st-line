@@ -5,7 +5,11 @@
              relativeToChangelogFile="true" />
     <include file="changelog/04-create-product.xml"
              relativeToChangelogFile="true" />
-    <include file="changelog/03-create-photo.xml"
+    <include file="changelog/07-create-brand.xml"
+             relativeToChangelogFile="true" />
+    <include file="changelog/08-create-model.xml"
+             relativeToChangelogFile="true" />
+    <include file="changelog/03-create-photos.xml"
              relativeToChangelogFile="true" />
     <include file="changelog/06-create-role.xml"
              relativeToChangelogFile="true" />

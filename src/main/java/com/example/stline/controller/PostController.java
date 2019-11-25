@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/st-line/posts")
+@RequestMapping("st-line/posts")
 @RequiredArgsConstructor
 @Slf4j
 public class PostController {
@@ -32,6 +32,7 @@ public class PostController {
 
     @PutMapping(consumes = {MediaType.APPLICATION_JSON_VALUE})
     public Post update(@RequestBody Post post) {
+        log.info("edit "+post);
         return service.update(post);
     }
 

@@ -2,8 +2,6 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
     <head>
         <script th:src="@{/static/v2/js/lib/angular.min.js}"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src="https://cdn.ckeditor.com/4.11.1/standard/ckeditor.js"></script>
         <script th:src="@{/static/v2/js/lib/ui-bootstrap-tpls-2.5.0.min.js}"></script>
         <link th:href="@{/static/v2/css/app/app_style.css}" rel="stylesheet"/>
         <script th:src="@{/static/v2/js/lib/angular.min.js}"></script>
@@ -57,13 +55,13 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav mr-auto">
                             <li class="nav-item">
-                                <a href="/st-line/main" class="nav-link active">Главная</a>
+                                <a href="/st-line/index#main" class="nav-link active">Главная</a>
                             </li>
                             <li class="nav-item">
-                                <a href="/st-line/about" class="nav-link active">О нас</a>
+                                <a href="/st-line/index#about" class="nav-link active">О нас</a>
                             </li>
                             <li class="nav-item">
-                                <a href="/st-line/products" class="nav-link active">Продукция</a>
+                                <a href="/st-line/index#products" class="nav-link active">Продукция</a>
                             </li>
                             <li class="nav-item">
                                 <a href="/st-line/news" class="nav-link active">Новости</a>
@@ -80,12 +78,19 @@
                     <div class="alert alert-secondary" role="alert">
                         <div sec:authorize="isAuthenticated()">
                             <div class="admin-controlls">
-                                    <button type="button" name="button" class="btn btn-primary">Edit</button>
                                     <a ng-click="deletePost(post)"><button  type="button" name="button" class="btn btn-danger">Delete</button></a>
+                                    <form  method="get" action="/st-line/editPost/">
+                                        <input type="number" name="postId"  value="{{post.id}}" hidden>
+                                        <button type="submit" class="btn btn-primary">Edit</button>
+                                    </form>
                             </div>
                         </div>
-                        <h2><a class="text-muted" href="/st-line/posts/{{post.id}}">{{post.title}}</a></h2>
-                        <div>{{post.title}}</a></div>
+                        <h2><form  method="get" action="/st-line/post/">
+                            <input type="number" name="postId"  value="{{post.id}}" hidden>
+                            <button type="submit" class="btn btn-light text-muted">{{post.title}}</button>
+                        </form></h2>
+                        <div>{{post.description}}</a></div>
+                        <div>{{post.date}}</a></div>
                     </div>
                 </div>
             </div>

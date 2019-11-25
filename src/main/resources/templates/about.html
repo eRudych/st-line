@@ -2,9 +2,8 @@
 <html xmlns:th="http://www.w3.org/1999/xhtml">
     <head>
     </head>
-    <body>
-        <div th:include="html/import/header"></div>
-        <div th:include="html/import/messageForm"></div>
+    <body th:fragment="about">
+    <a name="about"></a>
         <div class="container marketing">
             <div class="row">
                 <div class="col-lg-4">
@@ -99,6 +98,6 @@
                 </div>
             </div>
         </div>
-        <div th:include="html/import/footer"></div>
+    <br>
     </body>
 </html>

@@ -8,6 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.jooq.DSLContext;
 import org.springframework.stereotype.Repository;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 import static com.example.stline.db.tables.Posts.POSTS;
@@ -20,11 +21,11 @@ public class PostRepositoryImpl implements PostRepository {
     private final DSLContext dsl;
 
     private Long insert(Post post) {
-        PostsRecord messagesRecord = dsl.insertInto(POSTS, POSTS.TITLE, POSTS.DESCRIPTION, POSTS.TEXT)
-                .values(post.getTitle(), post.getDescription(), post.getText())
+        PostsRecord messagesRecord = dsl.insertInto(POSTS, POSTS.TITLE, POSTS.DESCRIPTION, POSTS.TEXT, POSTS.CREATED_AT)
+                .values(post.getTitle(), post.getDescription(), post.getText(), post.getDate())
                 .returning(POSTS.ID)
                 .fetchOne();
-        post.setId(messagesRecord.getValue( POSTS.ID));
+        post.setId(messagesRecord.getValue(POSTS.ID));
         log.info("Insert into db: {}", post.toString());
         return messagesRecord.getValue(POSTS.ID);
     }
@@ -50,26 +51,37 @@ public class PostRepositoryImpl implements PostRepository {
 
     @Override
     public Post get(Long id) {
-        return dsl.selectFrom(POSTS)
+        Post post = dsl.selectFrom(POSTS)
                 .where(POSTS.ID.eq(id))
                 .fetchOneInto(Post.class);
+        post.setDate(dsl.select(POSTS.CREATED_AT).from(POSTS).where(POSTS.ID.eq(id)).fetchOneInto((Timestamp.class)));
+        return post;
     }
 
     @Override
     public List<Post> getAll() {
-        return dsl.selectFrom(POSTS).orderBy(POSTS.ID.desc())
-                .fetchInto(Post.class);
+        return dsl.selectFrom(POSTS)
+                .orderBy(POSTS.ID.desc())
+                .fetch(r->{
+                    Post post = new Post();
+                    post.setId(r.get(0,Long.class));
+                    post.setTitle(r.get(1,String.class));
+                    post.setDescription(r.get(2,String.class));
+                    post.setText(r.get(3,String.class));
+                    post.setDate(r.get(4,Timestamp.class));
+                    return  post; });
     }
 
     @Override
     public boolean remove(Long id) {
         log.info("remove post from db");
         try {
-            dsl.selectFrom(POSTS)
-                    .where(POSTS.ID.eq(id))
-                    .fetchOneInto(Post.class);
+            dsl.deleteFrom(POSTS)
+                    .where(POSTS.ID.eq(id)).execute();
+            log.info("true");
             return true;
         } catch (Exception ex) {
+            log.info("false");
             return false;
         }
     }
