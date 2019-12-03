@@ -146,6 +146,16 @@
             <artifactId>google-api-services-drive</artifactId>
             <version>v3-rev188-1.25.0</version>
         </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.github.pengrad</groupId>-->
+<!--            <artifactId>java-telegram-bot-api</artifactId>-->
+<!--            <version>4.4.0</version>-->
+<!--        </dependency>-->
+        <dependency>
+            <groupId>com.github.xabgesagtx</groupId>
+            <artifactId>telegram-spring-boot-starter</artifactId>
+            <version>0.19</version>
+        </dependency>
     </dependencies>
         <build>
             <plugins>
@@ -172,7 +182,6 @@
                         </execution>
                     </executions>
                     <configuration>
-                        <skip>true</skip>
                         <jdbc>
                             <driver>org.postgresql.Driver</driver>
                             <url>${jooq.url}</url>
@@ -181,25 +190,10 @@
                         </jdbc>
                         <generator>
                             <generate>
-<!--                                <routines>false</routines>-->
-<!--                                <sequences>false</sequences>-->
-<!--                                <records>false</records>-->
-<!--                                <udts>false</udts>-->
-<!--                                <pojos>false</pojos>-->
-<!--                                <immutablePojos>false</immutablePojos>-->
-<!--                                <interfaces>false</interfaces>-->
-<!--                                <daos>false</daos>-->
-<!--                                <jpaAnnotations>false</jpaAnnotations>-->
-<!--                                <validationAnnotations>false</validationAnnotations>-->
-<!--                                <globalObjectReferences>false</globalObjectReferences>-->
-<!--                                <deprecated>false</deprecated>-->
-<!--                                <instanceFields>true</instanceFields>-->
-<!--                                <generatedAnnotation>false</generatedAnnotation>-->
                             </generate>
                             <database>
                                 <name>org.jooq.util.postgres.PostgresDatabase</name>
-                                <includes>messages | posts | photos | products </includes>
-<!--                                <exludes></exludes>-->
+                                <includes>messages | posts | photos | products | telegramMessages </includes>
                                 <inputSchema>public</inputSchema>
                             </database>
                             <target>

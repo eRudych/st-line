@@ -12,6 +12,5 @@ public class Post implements BaseEntity{
     private String title;
     private String description;
     private String text;
-
     private Timestamp date;
 }

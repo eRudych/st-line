@@ -8,6 +8,7 @@ import com.example.stline.db.tables.Messages;
 import com.example.stline.db.tables.Photos;
 import com.example.stline.db.tables.Posts;
 import com.example.stline.db.tables.Products;
+import com.example.stline.db.tables.Telegrammessages;
 
 import javax.annotation.Generated;
 
@@ -37,6 +38,7 @@ public class Indexes {
     public static final Index PHOTOS_PKEY = Indexes0.PHOTOS_PKEY;
     public static final Index POSTS_PKEY = Indexes0.POSTS_PKEY;
     public static final Index PRODUCTS_PKEY = Indexes0.PRODUCTS_PKEY;
+    public static final Index TELEGRAMMESSAGES_PKEY = Indexes0.TELEGRAMMESSAGES_PKEY;
 
     // -------------------------------------------------------------------------
     // [#1459] distribute members to avoid static initialisers > 64kb
@@ -47,5 +49,6 @@ public class Indexes {
         public static Index PHOTOS_PKEY = createIndex("photos_pkey", Photos.PHOTOS, new OrderField[] { Photos.PHOTOS.ID }, true);
         public static Index POSTS_PKEY = createIndex("posts_pkey", Posts.POSTS, new OrderField[] { Posts.POSTS.ID }, true);
         public static Index PRODUCTS_PKEY = createIndex("products_pkey", Products.PRODUCTS, new OrderField[] { Products.PRODUCTS.ID }, true);
+        public static Index TELEGRAMMESSAGES_PKEY = createIndex("telegrammessages_pkey", Telegrammessages.TELEGRAMMESSAGES, new OrderField[] { Telegrammessages.TELEGRAMMESSAGES.ID }, true);
     }
 }
