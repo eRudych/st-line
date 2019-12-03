@@ -24,23 +24,23 @@ public class PageController {
         mapping.put("main", "main");
         mapping.put("about", "about");
         mapping.put("products", "products");
-        mapping.put("news", "html/post/posts");
+        mapping.put("news", "post/posts");
 
         //import
-        mapping.put("/header", "html/import/header");
-        mapping.put("/footer", "html/import/footer");
-        mapping.put("/appStyle", "html/import/appStyle");
-        mapping.put("/messageForm", "html/import/messageForm");
+        mapping.put("/header", "import/header");
+        mapping.put("/footer", "import/footer");
+        mapping.put("/appStyle", "import/appStyle");
+        mapping.put("/messageForm", "import/messageForm");
 
         //post
-        mapping.put("createPost", "html/post/create");
-        mapping.put("test", "html/post/test");
-        mapping.put("editPost", "html/post/edit");
-        mapping.put("post", "html/post/get");
-//        mapping.put("getPost/{id}", "html/post/get");
+        mapping.put("createPost", "post/create");
+        mapping.put("test", "post/test");
+        mapping.put("editPost", "post/edit");
+        mapping.put("post", "post/get");
+//        mapping.put("getPost/{id}", "post/get");
 
-        mapping.put("send", "html/message/sendMessage");
-        mapping.put("messages", "html/message/listMessage");
+        mapping.put("send", "message/sendMessage");
+        mapping.put("messages", "message/listMessage");
     }
 
     @GetMapping

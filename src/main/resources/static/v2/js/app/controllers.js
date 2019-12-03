@@ -99,6 +99,7 @@ app.controller("PostController", function($scope, $http) {
     _refreshPostData();
 
     $scope.submitPost = function() {
+        var post1;
         var method = "POST";
         var url = '/st-line/posts';
         $http({
@@ -108,7 +109,8 @@ app.controller("PostController", function($scope, $http) {
             headers: {
                 'Content-Type': 'application/json'
             }
-        }).then(_success, _error);
+        }).then(post1=$scope.post,_success, _error);
+        console.log(post1);
     };
 
     $scope.createPost = function() {
@@ -130,7 +132,7 @@ app.controller("PostController", function($scope, $http) {
             data: angular.toJson($scope.post),
             headers: {
                 'Content-Type': 'application/json'
-            }
+            },
         }).then(_refreshPostData, _error);
     };
 
@@ -178,7 +180,7 @@ app.controller("PostController", function($scope, $http) {
     function _clearFormData() {
         $scope.post.text = "";
         $scope.post.description = "";
-        $scope.post.tittle = ""
+        $scope.post.title = ""
     };
 });
 

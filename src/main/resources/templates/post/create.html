@@ -7,12 +7,13 @@
         <script th:src="@{/static/v2/js/lib/ui-bootstrap-tpls-2.5.0.min.js}"></script>
         <script th:src="@{/static/v2/js/app/controllers.js}"></script>
         <script src="//cdn.ckeditor.com/4.5.6/standard/ckeditor.js"></script>
-        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.js"></script>-->
            </head>
     <body ng-app="app" ng-controller="PostController">
         <h1>Create Post Page</h1>
         <div class="container">
             <h1>Add new post</h1>
+            {{title}}<br>{{description}}<br>{{text}}
             <form ng-submit="submitPost()">
                 <div class="form-group">
                     <label>Title</label>
@@ -42,13 +43,14 @@
         </div>
         <div th:fragment="footer"></div>
         <script>
-            // CKEDITOR.replace('description');
-            // CKEDITOR.instances["description"].setData("<p>My Text</p>");
-            // alert(CKEDITOR.instances["description"].getData());
-            //CKEDITOR.replace( 'text');
-            // function getData() {
-            //     CKEDITOR.instances["description"].getData()
-            // }
+            CKEDITOR.replace('description');
+            CKEDITOR.instances["description"].setData("<p>My Text</p>");
+            alert(CKEDITOR.instances["description"].getData());
+            CKEDITOR.replace( 'text');
+            function getData(format) {
+                CKEDITOR.instances["description"].getData(format);
+                CKEDITOR.instances["description"].getData();
+            }
         </script>
     </body>
 </html>
