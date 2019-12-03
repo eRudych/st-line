@@ -8,10 +8,12 @@ import com.example.stline.db.tables.Messages;
 import com.example.stline.db.tables.Photos;
 import com.example.stline.db.tables.Posts;
 import com.example.stline.db.tables.Products;
+import com.example.stline.db.tables.Telegrammessages;
 import com.example.stline.db.tables.records.MessagesRecord;
 import com.example.stline.db.tables.records.PhotosRecord;
 import com.example.stline.db.tables.records.PostsRecord;
 import com.example.stline.db.tables.records.ProductsRecord;
+import com.example.stline.db.tables.records.TelegrammessagesRecord;
 
 import javax.annotation.Generated;
 
@@ -43,6 +45,7 @@ public class Keys {
     public static final Identity<PhotosRecord, Long> IDENTITY_PHOTOS = Identities0.IDENTITY_PHOTOS;
     public static final Identity<PostsRecord, Long> IDENTITY_POSTS = Identities0.IDENTITY_POSTS;
     public static final Identity<ProductsRecord, Long> IDENTITY_PRODUCTS = Identities0.IDENTITY_PRODUCTS;
+    public static final Identity<TelegrammessagesRecord, Integer> IDENTITY_TELEGRAMMESSAGES = Identities0.IDENTITY_TELEGRAMMESSAGES;
 
     // -------------------------------------------------------------------------
     // UNIQUE and PRIMARY KEY definitions
@@ -52,12 +55,14 @@ public class Keys {
     public static final UniqueKey<PhotosRecord> PHOTOS_PKEY = UniqueKeys0.PHOTOS_PKEY;
     public static final UniqueKey<PostsRecord> POSTS_PKEY = UniqueKeys0.POSTS_PKEY;
     public static final UniqueKey<ProductsRecord> PRODUCTS_PKEY = UniqueKeys0.PRODUCTS_PKEY;
+    public static final UniqueKey<TelegrammessagesRecord> TELEGRAMMESSAGES_PKEY = UniqueKeys0.TELEGRAMMESSAGES_PKEY;
 
     // -------------------------------------------------------------------------
     // FOREIGN KEY definitions
     // -------------------------------------------------------------------------
 
     public static final ForeignKey<PhotosRecord, ProductsRecord> PHOTOS__FK_PHOTOS_PRODUCTS = ForeignKeys0.PHOTOS__FK_PHOTOS_PRODUCTS;
+    public static final ForeignKey<TelegrammessagesRecord, PostsRecord> TELEGRAMMESSAGES__FK_TELEGRAMMESSAGES_POSTS = ForeignKeys0.TELEGRAMMESSAGES__FK_TELEGRAMMESSAGES_POSTS;
 
     // -------------------------------------------------------------------------
     // [#1459] distribute members to avoid static initialisers > 64kb
@@ -68,6 +73,7 @@ public class Keys {
         public static Identity<PhotosRecord, Long> IDENTITY_PHOTOS = createIdentity(Photos.PHOTOS, Photos.PHOTOS.ID);
         public static Identity<PostsRecord, Long> IDENTITY_POSTS = createIdentity(Posts.POSTS, Posts.POSTS.ID);
         public static Identity<ProductsRecord, Long> IDENTITY_PRODUCTS = createIdentity(Products.PRODUCTS, Products.PRODUCTS.ID);
+        public static Identity<TelegrammessagesRecord, Integer> IDENTITY_TELEGRAMMESSAGES = createIdentity(Telegrammessages.TELEGRAMMESSAGES, Telegrammessages.TELEGRAMMESSAGES.ID);
     }
 
     private static class UniqueKeys0 extends AbstractKeys {
@@ -75,9 +81,11 @@ public class Keys {
         public static final UniqueKey<PhotosRecord> PHOTOS_PKEY = createUniqueKey(Photos.PHOTOS, "photos_pkey", Photos.PHOTOS.ID);
         public static final UniqueKey<PostsRecord> POSTS_PKEY = createUniqueKey(Posts.POSTS, "posts_pkey", Posts.POSTS.ID);
         public static final UniqueKey<ProductsRecord> PRODUCTS_PKEY = createUniqueKey(Products.PRODUCTS, "products_pkey", Products.PRODUCTS.ID);
+        public static final UniqueKey<TelegrammessagesRecord> TELEGRAMMESSAGES_PKEY = createUniqueKey(Telegrammessages.TELEGRAMMESSAGES, "telegrammessages_pkey", Telegrammessages.TELEGRAMMESSAGES.ID);
     }
 
     private static class ForeignKeys0 extends AbstractKeys {
         public static final ForeignKey<PhotosRecord, ProductsRecord> PHOTOS__FK_PHOTOS_PRODUCTS = createForeignKey(com.example.stline.db.Keys.PRODUCTS_PKEY, Photos.PHOTOS, "photos__fk_photos_products", Photos.PHOTOS.PRODUCT);
+        public static final ForeignKey<TelegrammessagesRecord, PostsRecord> TELEGRAMMESSAGES__FK_TELEGRAMMESSAGES_POSTS = createForeignKey(com.example.stline.db.Keys.POSTS_PKEY, Telegrammessages.TELEGRAMMESSAGES, "telegramMessages__fk_telegramMessages_posts", Telegrammessages.TELEGRAMMESSAGES.ID_POST);
     }
 }

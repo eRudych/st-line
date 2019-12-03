@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+    <head>
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
+        <link th:href="@{/static/v2/css/app/app_style.css}" rel="stylesheet"/>
+        <script th:src="@{/static/v2/js/lib/angular.min.js}"></script>-->
+        <script th:src="@{/static/v2/js/lib/ui-bootstrap-tpls-2.5.0.min.js}"></script>
+        <script th:src="@{/static/v2/js/app/controllers.js}"></script>
+        <script src="//cdn.ckeditor.com/4.5.6/standard/ckeditor.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.js"></script>-->
+           </head>
+    <body ng-app="app" ng-controller="PostController">
+        <h1>Create Post Page</h1>
+        <div class="container">
+            <h1>Add new post</h1>
+            {{title}}<br>{{description}}<br>{{text}}
+            <form ng-submit="submitPost()">
+                <div class="form-group">
+                    <label>Title</label>
+                    <textarea  name="title" type="text" rows="1" cols="1" ng-model="post.title" placeholder="Title" class="form-control"  required="required"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Description</label>
+                    <textarea name="description" id="description" type="text" rows="8" cols="80"  ng-model="post.description" placeholder="Description" class="form-control" required="required"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Full text</label>
+                    <textarea name="text"  rows="8"  id="text" type="text" cols="80" ng-model="post.text" placeholder="Full text" class="form-control" required="required"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>SendPostIntoChannel</label>
+                    <input name="isSendPostIntoChannel" ng-model="post.isSendPostIntoChannel" type="checkbox" value="true" checked>
+                </div>
+<!--                <div class="form-check">-->
+<!--                    <input type="hidden" name="sendPostIntoChannel" value="false">-->
+<!--                    <input type="checkbox" name="sendPostIntoChannel" class="form-check-input" value="true" id="exampleCheck1">-->
+<!--                    <label class="form-check-label" for="exampleCheck1">Check me out</label>-->
+<!--                </div>-->
+                <div class="form-group">
+                    <input type="submit" name="submit"  value="Create" class="btn btn-info form-control"  onclick="getData()"  >
+                </div>
+            </form>
+        </div>
+        <div th:fragment="footer"></div>
+        <script>
+            CKEDITOR.replace('description');
+            CKEDITOR.instances["description"].setData("<p>My Text</p>");
+            alert(CKEDITOR.instances["description"].getData());
+            CKEDITOR.replace( 'text');
+            function getData(format) {
+                CKEDITOR.instances["description"].getData(format);
+                CKEDITOR.instances["description"].getData();
+            }
+        </script>
+    </body>
+</html>
+

@@ -8,6 +8,7 @@ import com.example.stline.db.tables.Messages;
 import com.example.stline.db.tables.Photos;
 import com.example.stline.db.tables.Posts;
 import com.example.stline.db.tables.Products;
+import com.example.stline.db.tables.Telegrammessages;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -33,7 +34,7 @@ import org.jooq.impl.SchemaImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Public extends SchemaImpl {
 
-    private static final long serialVersionUID = -1510206348;
+    private static final long serialVersionUID = -1776976598;
 
     /**
      * The reference instance of <code>public</code>
@@ -59,6 +60,11 @@ public class Public extends SchemaImpl {
      * The table <code>public.products</code>.
      */
     public final Products PRODUCTS = com.example.stline.db.tables.Products.PRODUCTS;
+
+    /**
+     * The table <code>public.telegramMessages</code>.
+     */
+    public final Telegrammessages TELEGRAMMESSAGES = com.example.stline.db.tables.Telegrammessages.TELEGRAMMESSAGES;
 
     /**
      * No further instances allowed
@@ -88,6 +94,7 @@ public class Public extends SchemaImpl {
             Messages.MESSAGES,
             Photos.PHOTOS,
             Posts.POSTS,
-            Products.PRODUCTS);
+            Products.PRODUCTS,
+            Telegrammessages.TELEGRAMMESSAGES);
     }
 }

@@ -8,6 +8,7 @@ import com.example.stline.db.tables.Messages;
 import com.example.stline.db.tables.Photos;
 import com.example.stline.db.tables.Posts;
 import com.example.stline.db.tables.Products;
+import com.example.stline.db.tables.Telegrammessages;
 
 import javax.annotation.Generated;
 
@@ -44,4 +45,9 @@ public class Tables {
      * The table <code>public.products</code>.
      */
     public static final Products PRODUCTS = com.example.stline.db.tables.Products.PRODUCTS;
+
+    /**
+     * The table <code>public.telegramMessages</code>.
+     */
+    public static final Telegrammessages TELEGRAMMESSAGES = com.example.stline.db.tables.Telegrammessages.TELEGRAMMESSAGES;
 }

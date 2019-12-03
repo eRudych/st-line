@@ -10,4 +10,5 @@ public class PostDTO implements BaseDTO {
     private  String description;
     private  String text;
     private Timestamp date;
+    private boolean isSendPostIntoChannel;
 }

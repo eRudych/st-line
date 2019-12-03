@@ -2,11 +2,11 @@ package com.example.stline.controller;
 
 import com.example.stline.dto.PostDTO;
 import com.example.stline.entity.Post;
+import com.example.stline.service.BotService;
 import com.example.stline.service.PostService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.MediaType;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,33 +17,38 @@ import java.util.List;
 @Slf4j
 public class PostController {
 
-    private final PostService service;
+    private final PostService webService;
+    private final BotService botService;
 
     @PostMapping(consumes = {MediaType.APPLICATION_JSON_VALUE})
-    public Post create(@RequestBody PostDTO postDTO) {
-        log.info("create post"+ postDTO.toString());
-        return service.create(postDTO);
+    public Post create(@RequestBody PostDTO post) {
+        Post postResult = webService.create(post);
+        if (post.isSendPostIntoChannel()) {
+            botService.sendPost(post,postResult.getId());
+        }
+        botService.sendPost(post,postResult.getId());
+        return postResult;
     }
 
     @GetMapping("/{id}")
     public Post get(@PathVariable("id") long id) {
-        return service.get(id);
+        return webService.get(id);
     }
 
     @PutMapping(consumes = {MediaType.APPLICATION_JSON_VALUE})
     public Post update(@RequestBody Post post) {
-        log.info("edit "+post);
-        return service.update(post);
+        botService.editPost(post);
+        return webService.update(post);
     }
 
     @DeleteMapping("/{id}")
     public boolean remove(@PathVariable("id") long id) {
-        log.info("remove post");
-        return service.remove(id);
+        botService.removePost(id);
+        return webService.remove(id);
     }
 
     @GetMapping
     public List getAll() {
-        return service.getAll();
+        return webService.getAll();
     }
 }
