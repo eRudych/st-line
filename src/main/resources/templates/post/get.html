@@ -5,7 +5,7 @@
     <script th:src="@{/static/v2/js/app/controllers.js}"></script>
 </head>
 <body ng-app="app" ng-controller="PostController">
-<div th:include="html/import/header"></div>
+<div th:include="import/header"></div>
 <h1>Get Post Page</h1>
 <div class="container">
     <div class="alert alert-secondary" role="alert" ng-init="getPost()" >
@@ -27,8 +27,7 @@
         CKEDITOR.replace( 'text');
     })
 </script>
-
-<div th:include="html/import/footer"></div>
+<div th:fragment="footer"></div>
 </body>
 </html>
 

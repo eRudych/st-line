@@ -1,4 +1,28 @@
-var app = angular.module("app", []);
+var app = angular.module("app",[])
+app.directive('ckEditor', function () {
+    return {
+        require: '?ngModel',
+        link: function (scope, elm, attr, ngModel) {
+            var ck = CKEDITOR.replace(elm[0]);
+            if (!ngModel) return;
+            ck.on('instanceReady', function () {
+                ck.setData(ngModel.$viewValue);
+            });
+            function updateModel() {
+                scope.$apply(function () {
+                    ngModel.$setViewValue(ck.getData());
+                });
+            }
+            ck.on('change', updateModel);
+            ck.on('key', updateModel);
+            ck.on('dataReady', updateModel);
+
+            ngModel.$render = function (value) {
+                ck.setData(ngModel.$viewValue);
+            };
+        }
+    };
+});
 
 //MESSAGE
 app.controller("MessageController", function($scope, $http) {
@@ -11,6 +35,7 @@ app.controller("MessageController", function($scope, $http) {
         var method = "POST";
         var url = '/st-line';
         $http({
+
             method: method,
             url: url,
             data: angular.toJson($scope.messageForm),
@@ -67,7 +92,9 @@ app.controller("MessageController", function($scope, $http) {
 app.controller("PostController", function($scope, $http) {
     $scope.posts = [];
     $scope.postId=1;
-    $scope.post;
+    $scope.post={
+        isSendPostIntoChannel: true
+    };
 
     _refreshPostData();
 

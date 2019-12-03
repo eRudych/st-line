@@ -15,6 +15,8 @@
              relativeToChangelogFile="true" />
     <include file="changelog/05-create-user.xml"
              relativeToChangelogFile="true" />
+    <include file="changelog/09-create-telegramMessages.xml"
+             relativeToChangelogFile="true" />
     <include file="changelog/02-create-post.xml"
              relativeToChangelogFile="true" />
 </databaseChangeLog>

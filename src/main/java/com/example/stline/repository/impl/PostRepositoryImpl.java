@@ -21,13 +21,13 @@ public class PostRepositoryImpl implements PostRepository {
     private final DSLContext dsl;
 
     private Long insert(Post post) {
-        PostsRecord messagesRecord = dsl.insertInto(POSTS, POSTS.TITLE, POSTS.DESCRIPTION, POSTS.TEXT, POSTS.CREATED_AT)
+        PostsRecord postsRecord = dsl.insertInto(POSTS, POSTS.TITLE, POSTS.DESCRIPTION, POSTS.TEXT, POSTS.CREATED_AT)
                 .values(post.getTitle(), post.getDescription(), post.getText(), post.getDate())
                 .returning(POSTS.ID)
                 .fetchOne();
-        post.setId(messagesRecord.getValue(POSTS.ID));
+        post.setId(postsRecord.getValue(POSTS.ID));
         log.info("Insert into db: {}", post.toString());
-        return messagesRecord.getValue(POSTS.ID);
+        return postsRecord.getValue(POSTS.ID);
     }
 
     @Override
