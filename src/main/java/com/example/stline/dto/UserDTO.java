@@ -2,12 +2,46 @@ package com.example.stline.dto;
 
 import com.example.stline.entity.UserRole;
 import lombok.Data;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
+import java.util.Collection;
 
 @Data
-public class UserDTO implements BaseDTO {
-    private String name;
-    private String login;
+public class UserDTO implements BaseDTO, UserDetails {
+    private Long id;
+    private String userName;
+    private String email;
     private String password;
-    private  UserRole role;
+    private Long role;
 
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return null;
+    }
+
+    @Override
+    public String getUsername() {
+        return this.userName;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return false;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return false;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return false;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return false;
+    }
 }

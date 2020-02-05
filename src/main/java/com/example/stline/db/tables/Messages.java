@@ -4,7 +4,6 @@
 package com.example.stline.db.tables;
 
 
-import com.example.stline.db.Indexes;
 import com.example.stline.db.Keys;
 import com.example.stline.db.Public;
 import com.example.stline.db.tables.records.MessagesRecord;
@@ -17,7 +16,6 @@ import javax.annotation.Generated;
 
 import org.jooq.Field;
 import org.jooq.Identity;
-import org.jooq.Index;
 import org.jooq.Name;
 import org.jooq.Schema;
 import org.jooq.Table;
@@ -40,7 +38,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Messages extends TableImpl<MessagesRecord> {
 
-    private static final long serialVersionUID = 302106197;
+    private static final long serialVersionUID = 1843716611;
 
     /**
      * The reference instance of <code>public.messages</code>
@@ -115,14 +113,6 @@ public class Messages extends TableImpl<MessagesRecord> {
     @Override
     public Schema getSchema() {
         return Public.PUBLIC;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public List<Index> getIndexes() {
-        return Arrays.<Index>asList(Indexes.MESSAGES_PKEY);
     }
 
     /**

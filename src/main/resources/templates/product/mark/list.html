@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
+    <link th:href="@{/static/v2/css/app/app_style.css}" rel="stylesheet"/>
+    <script th:src="@{/static/v2/js/lib/angular.min.js}"></script>
+    <script th:src="@{/static/v2/js/lib/ui-bootstrap-tpls-2.5.0.min.js}"></script>
+    <script th:src="@{/static/v2/js/app/controller/MarkController.js}"></script>
+</head>
+<body>
+<div ng-app="app" ng-controller="MarkController">
+    <div class="container">
+        <div  ng-repeat="mark in marks">
+            <h6>{{mark.id}} - {{mark.name}}</h6>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+

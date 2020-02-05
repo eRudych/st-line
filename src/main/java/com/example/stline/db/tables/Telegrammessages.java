@@ -4,7 +4,6 @@
 package com.example.stline.db.tables;
 
 
-import com.example.stline.db.Indexes;
 import com.example.stline.db.Keys;
 import com.example.stline.db.Public;
 import com.example.stline.db.tables.records.TelegrammessagesRecord;
@@ -16,8 +15,6 @@ import javax.annotation.Generated;
 
 import org.jooq.Field;
 import org.jooq.ForeignKey;
-import org.jooq.Identity;
-import org.jooq.Index;
 import org.jooq.Name;
 import org.jooq.Schema;
 import org.jooq.Table;
@@ -40,7 +37,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Telegrammessages extends TableImpl<TelegrammessagesRecord> {
 
-    private static final long serialVersionUID = 83307344;
+    private static final long serialVersionUID = 299214549;
 
     /**
      * The reference instance of <code>public.telegramMessages</code>
@@ -58,7 +55,7 @@ public class Telegrammessages extends TableImpl<TelegrammessagesRecord> {
     /**
      * The column <code>public.telegramMessages.id</code>.
      */
-    public final TableField<TelegrammessagesRecord, Integer> ID = createField("id", org.jooq.impl.SQLDataType.INTEGER.nullable(false).defaultValue(org.jooq.impl.DSL.field("nextval('\"telegramMessages_id_seq\"'::regclass)", org.jooq.impl.SQLDataType.INTEGER)), this, "");
+    public final TableField<TelegrammessagesRecord, Integer> ID = createField("id", org.jooq.impl.SQLDataType.INTEGER.nullable(false), this, "");
 
     /**
      * The column <code>public.telegramMessages.id_post</code>.
@@ -100,22 +97,6 @@ public class Telegrammessages extends TableImpl<TelegrammessagesRecord> {
     @Override
     public Schema getSchema() {
         return Public.PUBLIC;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public List<Index> getIndexes() {
-        return Arrays.<Index>asList(Indexes.TELEGRAMMESSAGES_PKEY);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public Identity<TelegrammessagesRecord, Integer> getIdentity() {
-        return Keys.IDENTITY_TELEGRAMMESSAGES;
     }
 
     /**

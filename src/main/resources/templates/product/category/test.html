@@ -1,0 +1,12 @@
+<div th:fragment="test1" xmlns:th="http://www.w3.org/1999/xhtml">
+    <script th:src="@{/static/v2/js/app/controller/CategoryController.js}"></script>
+    <div ng-controller="CategoryController">
+        <div class="alert alert-secondary" ng-repeat="category in categories">
+            <h2 class="text-muted">{{ category.id}}</h2>
+            <p class="lead">{{ category.name }}</p>
+            <a ng-click="deleteCategory(category)">
+                <button type="button" name="button" class="btn btn-danger">Delete</button>
+            </a>
+        </div>
+    </div>
+</div>

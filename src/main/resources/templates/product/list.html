@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
+    <link th:href="@{/static/v2/css/app/app_style.css}" rel="stylesheet"/>
+    <script th:src="@{/static/v2/js/lib/angular.min.js}"></script>-->
+    <script th:src="@{/static/v2/js/lib/ui-bootstrap-tpls-2.5.0.min.js}"></script>
+    <script th:src="@{/static/v2/js/app/controllers.js}"></script>
+</head>
+<body>
+<div ng-app="app" ng-controller="ProductController">
+    <div class="container">
+        <div class="post"  ng-repeat="product in products">
+            <div class="alert alert-secondary" role="alert">
+                <h2>
+                    <form  method="get" action="../st-line/productsFun/get">
+                    <button type="submit" class="btn btn-light text-muted">{{product.id}}</button>
+                    {{product.product}}
+                    </form>
+                    <form method="get" action="../st-line/productsFun/addInOrder">
+                        <button type="submit" class="btn btn-primary">Add in order</button>
+                    </form>
+
+                </h2>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+

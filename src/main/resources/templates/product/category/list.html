@@ -1,0 +1,16 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>AngularJS</title>
+    <script th:src="@{/static/v2/js/lib/angular.min.js}"></script>
+    <script th:src="@{/static/v2/js/app/controller/CategoryController.js}"></script>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
+</head>
+<br>
+<div ng-app="app" ng-controller="CategoryController">
+    <div ng-repeat="category in categories">
+        <h6 class="text-muted">{{ category.id}} - {{ category.name }}</h6>
+    </div>
+</div>
+</body>
+</html>

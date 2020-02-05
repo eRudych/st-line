@@ -5,10 +5,14 @@ package com.example.stline.db;
 
 
 import com.example.stline.db.tables.Messages;
-import com.example.stline.db.tables.Photos;
+import com.example.stline.db.tables.Order;
+import com.example.stline.db.tables.OrderDetails_;
 import com.example.stline.db.tables.Posts;
-import com.example.stline.db.tables.Products;
+import com.example.stline.db.tables.Product___;
+import com.example.stline.db.tables.ProductsCategory_;
+import com.example.stline.db.tables.ProductsMark_;
 import com.example.stline.db.tables.Telegrammessages;
+import com.example.stline.db.tables.Users;
 
 import javax.annotation.Generated;
 
@@ -32,9 +36,14 @@ public class Tables {
     public static final Messages MESSAGES = com.example.stline.db.tables.Messages.MESSAGES;
 
     /**
-     * The table <code>public.photos</code>.
+     * The table <code>public.order</code>.
      */
-    public static final Photos PHOTOS = com.example.stline.db.tables.Photos.PHOTOS;
+    public static final Order ORDER = com.example.stline.db.tables.Order.ORDER;
+
+    /**
+     * The table <code>public.order_details_</code>.
+     */
+    public static final OrderDetails_ ORDER_DETAILS_ = com.example.stline.db.tables.OrderDetails_.ORDER_DETAILS_;
 
     /**
      * The table <code>public.posts</code>.
@@ -42,12 +51,27 @@ public class Tables {
     public static final Posts POSTS = com.example.stline.db.tables.Posts.POSTS;
 
     /**
-     * The table <code>public.products</code>.
+     * The table <code>public.product___</code>.
      */
-    public static final Products PRODUCTS = com.example.stline.db.tables.Products.PRODUCTS;
+    public static final Product___ PRODUCT___ = com.example.stline.db.tables.Product___.PRODUCT___;
+
+    /**
+     * The table <code>public.products_category_</code>.
+     */
+    public static final ProductsCategory_ PRODUCTS_CATEGORY_ = com.example.stline.db.tables.ProductsCategory_.PRODUCTS_CATEGORY_;
+
+    /**
+     * The table <code>public.products_mark_</code>.
+     */
+    public static final ProductsMark_ PRODUCTS_MARK_ = com.example.stline.db.tables.ProductsMark_.PRODUCTS_MARK_;
 
     /**
      * The table <code>public.telegramMessages</code>.
      */
     public static final Telegrammessages TELEGRAMMESSAGES = com.example.stline.db.tables.Telegrammessages.TELEGRAMMESSAGES;
+
+    /**
+     * The table <code>public.users</code>.
+     */
+    public static final Users USERS = com.example.stline.db.tables.Users.USERS;
 }

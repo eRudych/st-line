@@ -4,8 +4,7 @@
         <script th:src="@{/static/v2/js/lib/angular.min.js}"></script>
         <script th:src="@{/static/v2/js/lib/ui-bootstrap-tpls-2.5.0.min.js}"></script>
         <link th:href="@{/static/v2/css/app/app_style.css}" rel="stylesheet"/>
-        <script th:src="@{/static/v2/js/lib/angular.min.js}"></script>
-        <script th:src="@{/static/v2/js/app/controllers.js}"></script>
+        <script th:src="@{/static/v2/js/app/controller/PostController.js}"></script>
         <link rel="dns-prefetch" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
@@ -31,11 +30,7 @@
                            target="_blank"><i class="fab fa-instagram"></i></a>
                         <a class="py-2 d-none d-md-inline-block" href="https://t.me/stlinevn" target="_blank"><i
                                 class="fas fa-paper-plane"></i></a>
-                        <nav class="my-2 my-md-0 mr-md-3">
-                            <a class="p-2" href="/ru/">ru</a>
-                            <a class="p-2" href="/ua/">ua</a>
-                            <a class="p-2" href="/en/">en</a>
-                        </nav>
+
                     </div>
                 </nav>
             </div>
@@ -66,6 +61,9 @@
                             <li class="nav-item">
                                 <a href="/st-line/news" class="nav-link active">Новости</a>
                             </li>
+                            <li class="nav-item">
+                                <a href="/st-line/login" class="nav-link active">Новости</a>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -95,6 +93,6 @@
                 </div>
             </div>
         </div>
-        <div th:fragment="footer"></div>
+        <div th:include="import/footer"></div>
     </body>
 </html>

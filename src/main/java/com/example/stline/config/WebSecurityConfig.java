@@ -1,62 +1,60 @@
 package com.example.stline.config;
 
+import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.NoOpPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
-import org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler;
 
 @Configuration
 @EnableWebSecurity
+@RequiredArgsConstructor
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
-    @Override
-    protected void configure(AuthenticationManagerBuilder auth)
+    @Bean
+    public BCryptPasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
+
+    @Autowired
+    protected void configure(AuthenticationManagerBuilder auth,
+                             @Qualifier("userServiceImpl") UserDetailsService service)
             throws Exception {
-        auth
-                .inMemoryAuthentication()
-                    .withUser("root")
-                        .password(passwordEncoder().encode("root"))
-                        .roles("ADMIN")
-                    .and()
-                    .withUser("manager")
-                        .password(passwordEncoder().encode("hahaha"))
-                        .roles("MANAGER");
+        auth.inMemoryAuthentication()
+                .withUser("root")
+                .password(passwordEncoder().encode("root"))
+                .roles("ADMIN");
+        auth.userDetailsService(service);
     }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.antMatcher("/**")
                 .authorizeRequests()
-                .antMatchers("/v2/**","/st-line","/st-line/new","/st-line/products","/st-line/main","drive/ggl").permitAll()
-                .antMatchers("/st-line/messages","/st-line/createPost","/st-line/editPost").authenticated()
+                .antMatchers("/v2/**","/v3/**", "/assets/**", "/assets/css/**","/assets/js/**", "/","/store", "/st-line/new", "/products", "/st-line/main", "st-line/order").permitAll()
+                .antMatchers("/messages", "/createPost", "/editPost").hasRole("ADMIN")
+                .antMatchers("/st-line/createOrder").authenticated()
                 .and()
-                    .formLogin()
-                    .successHandler(successHandler())
-                    .defaultSuccessUrl("/st-line/messages")
-                    .permitAll()
+                .formLogin()
+                .loginPage("/login")
+                .defaultSuccessUrl("/login")
+                .permitAll()
                 .and()
-                    .logout()
-                    .permitAll()
+                .logout()
+                .logoutUrl("/st-line/logout")
+                .invalidateHttpSession(true)
+                .deleteCookies("JSESSIONID")
+                .permitAll()
                 .and()
-                    .csrf().disable();
-    }
-
-    @Bean
-    public AuthenticationSuccessHandler successHandler() {
-        SimpleUrlAuthenticationSuccessHandler handler = new SimpleUrlAuthenticationSuccessHandler();
-        handler.setUseReferer(true);
-        return handler;
-    }
-
-    @Bean
-    public BCryptPasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
+                .rememberMe().key("uniqueAndSecret")
+                .and()
+                .csrf().disable();
     }
 }
+

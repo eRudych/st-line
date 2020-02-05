@@ -5,10 +5,14 @@ package com.example.stline.db;
 
 
 import com.example.stline.db.tables.Messages;
-import com.example.stline.db.tables.Photos;
+import com.example.stline.db.tables.Order;
+import com.example.stline.db.tables.OrderDetails_;
 import com.example.stline.db.tables.Posts;
-import com.example.stline.db.tables.Products;
+import com.example.stline.db.tables.Product___;
+import com.example.stline.db.tables.ProductsCategory_;
+import com.example.stline.db.tables.ProductsMark_;
 import com.example.stline.db.tables.Telegrammessages;
+import com.example.stline.db.tables.Users;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -34,7 +38,7 @@ import org.jooq.impl.SchemaImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Public extends SchemaImpl {
 
-    private static final long serialVersionUID = -1776976598;
+    private static final long serialVersionUID = 1520522676;
 
     /**
      * The reference instance of <code>public</code>
@@ -47,9 +51,14 @@ public class Public extends SchemaImpl {
     public final Messages MESSAGES = com.example.stline.db.tables.Messages.MESSAGES;
 
     /**
-     * The table <code>public.photos</code>.
+     * The table <code>public.order</code>.
      */
-    public final Photos PHOTOS = com.example.stline.db.tables.Photos.PHOTOS;
+    public final Order ORDER = com.example.stline.db.tables.Order.ORDER;
+
+    /**
+     * The table <code>public.order_details_</code>.
+     */
+    public final OrderDetails_ ORDER_DETAILS_ = com.example.stline.db.tables.OrderDetails_.ORDER_DETAILS_;
 
     /**
      * The table <code>public.posts</code>.
@@ -57,14 +66,29 @@ public class Public extends SchemaImpl {
     public final Posts POSTS = com.example.stline.db.tables.Posts.POSTS;
 
     /**
-     * The table <code>public.products</code>.
+     * The table <code>public.product___</code>.
      */
-    public final Products PRODUCTS = com.example.stline.db.tables.Products.PRODUCTS;
+    public final Product___ PRODUCT___ = com.example.stline.db.tables.Product___.PRODUCT___;
+
+    /**
+     * The table <code>public.products_category_</code>.
+     */
+    public final ProductsCategory_ PRODUCTS_CATEGORY_ = com.example.stline.db.tables.ProductsCategory_.PRODUCTS_CATEGORY_;
+
+    /**
+     * The table <code>public.products_mark_</code>.
+     */
+    public final ProductsMark_ PRODUCTS_MARK_ = com.example.stline.db.tables.ProductsMark_.PRODUCTS_MARK_;
 
     /**
      * The table <code>public.telegramMessages</code>.
      */
     public final Telegrammessages TELEGRAMMESSAGES = com.example.stline.db.tables.Telegrammessages.TELEGRAMMESSAGES;
+
+    /**
+     * The table <code>public.users</code>.
+     */
+    public final Users USERS = com.example.stline.db.tables.Users.USERS;
 
     /**
      * No further instances allowed
@@ -92,9 +116,13 @@ public class Public extends SchemaImpl {
     private final List<Table<?>> getTables0() {
         return Arrays.<Table<?>>asList(
             Messages.MESSAGES,
-            Photos.PHOTOS,
+            Order.ORDER,
+            OrderDetails_.ORDER_DETAILS_,
             Posts.POSTS,
-            Products.PRODUCTS,
-            Telegrammessages.TELEGRAMMESSAGES);
+            Product___.PRODUCT___,
+            ProductsCategory_.PRODUCTS_CATEGORY_,
+            ProductsMark_.PRODUCTS_MARK_,
+            Telegrammessages.TELEGRAMMESSAGES,
+            Users.USERS);
     }
 }

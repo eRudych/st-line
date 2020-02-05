@@ -78,10 +78,9 @@ public class PostRepositoryImpl implements PostRepository {
         try {
             dsl.deleteFrom(POSTS)
                     .where(POSTS.ID.eq(id)).execute();
-            log.info("true");
             return true;
         } catch (Exception ex) {
-            log.info("false");
+            log.error(ex.getMessage());
             return false;
         }
     }

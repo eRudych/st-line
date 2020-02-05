@@ -15,4 +15,5 @@ public class Message implements BaseEntity {
     private String phone;
     private String message;
     private Timestamp date;
+
 }

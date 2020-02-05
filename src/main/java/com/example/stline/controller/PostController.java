@@ -43,8 +43,10 @@ public class PostController {
 
     @DeleteMapping("/{id}")
     public boolean remove(@PathVariable("id") long id) {
-        botService.removePost(id);
-        return webService.remove(id);
+        try{botService.removePost(id);}
+        finally {
+            return webService.remove(id);
+        }
     }
 
     @GetMapping

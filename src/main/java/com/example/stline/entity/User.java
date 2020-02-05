@@ -1,12 +1,18 @@
 package com.example.stline.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.Value;
+import org.springframework.security.core.Authentication;
 
-@Value
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
 public class User implements BaseEntity {
-    private final Long id;
-    private final String name;
-    private final String login;
-    private final String password;
-    private final UserRole role;
+    private Long id;
+    private String userName;
+    private String email;
+    private String password;
+    private Long role;
 }

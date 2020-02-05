@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
+    <script th:src="@{/static/v2/js/lib/ui-bootstrap-tpls-2.5.0.min.js}"></script>
+<!--    <script th:src="@{/static/v2/js/app/controller/ProductController.js}"></script>-->
+<!--    <script th:src="@{/static/v2/js/app/controller/MarkController.js}"></script>-->
+<!--    <script th:src="@{/static/v2/js/app/controller/CategoryController.js}"></script>-->
+<!--    <script th:src="@{/static/v2/js/lib/angular.min.js}"></script>-->
+    <script th:src="@{/static/v2/js/lib/angular.min.js}"></script>
+    <script th:src="@{/static/v2/js/app/controller/MarkController.js}"></script>
+<!--    <script th:src="@{/static/v2/js/app/controller/CategoryController.js}"></script>-->
+    <script th:src="@{/static/v2/js/app/controller/ProductController.js}"></script>
+
+
+</head>
+<body>
+<h1>Create Product</h1>
+<div class="container" ng-app="app">
+    <div class="row">
+        <div class="col-md-3" ng-controller="ProductController">
+            <form ng-submit="submitProduct()">
+                <div class="form-group">
+                    <label>Mark</label>
+                    <input name="mark" id="mark" type="text" rows="8" ng-model="product.mark" placeholder="Mark"
+                           class="form-control" required="required"></input>
+                </div>
+                <div class="form-group">
+                    <label>Model</label>
+                    <input name="model" id="model" type="text" rows="8" ng-model="product.model" placeholder="Model"
+                           class="form-control" required="required"></input>
+                </div>
+                <div class="form-group">
+                    <label>Range</label>
+                    <input name="range" id="range" type="text" rows="8" ng-model="product.range" placeholder="Range"
+                           class="form-control" required="required"></input>
+                </div>
+                <div class="form-group">
+                    <label>Price</label>
+                    <input name="range" id="price" type="text" rows="8" ng-model="product.price" placeholder="Range"
+                           class="form-control" required="required"></input>
+                </div>
+                <div class="form-group">
+                    <label>Category</label>
+                    <input name="category" id="category" type="number" rows="8" ng-model="product.category"
+                           placeholder="Category" class="form-control" required="required"></input>
+                </div>
+                <div class="form-group">
+                    <label>Years (optional)</label>
+                    <input name="years" id="years" type="text" rows="8" ng-model="product.years" placeholder="Years"
+                           class="form-control"></input>
+                </div>
+                <div class="form-group">
+                    <label>Info (optional)</label>
+                    <input name="years" id="info" type="text" rows="8" ng-model="product.info" placeholder="Info"
+                           class="form-control"></input>
+                </div>
+                <div class="form-group">
+                    <label>Photo-1 (optional)</label>
+                    <input name="photo1" id="photo1" type="text" rows="8" ng-model="product.photo1"
+                           placeholder="Photo-1" class="form-control"></input>
+                </div>
+                <div class="form-group">
+                    <label>Photo-2 (optional)</label>
+                    <input name="photo2" id="photo2" type="text" rows="8" ng-model="product.photo2"
+                           placeholder="Photo-2" class="form-control"></input>
+                </div>
+                <div class="form-group">
+                    <label>Photo-3 (optional)</label>
+                    <input name="photo3" id="photo3" type="text" rows="8" ng-model="product.photo3"
+                           placeholder="Photo-3" class="form-control"></input>
+                </div>
+                <div class="form-group">
+                    <input type="submit" name="submit" value="Create" class="btn btn-info form-control">
+                </div>
+            </form>
+        </div>
+        <div class="col-md-3" style="margin: 10px; padding: 20px">
+            <a href=/getCategories target="_blank" class="btn btn-submit">List of category</a><br>
+            <img src="../../static/v3/img/snap/snapshot_category.jpg">
+        </div>
+        <div class="col-md-3" style="margin: 10px; padding: 20px">
+            <a href="/getMarks" target="_blank" class="btn btn-submit">List of mark</a><br>
+            <img src="../../static/v3/img/snap/snapshot_mark_01.jpg">
+            <img src="../../static/v3/img/snap/snapshot_mark_02.jpg">
+        </div>
+    </div>
+</div>
+</body>
+</html>
+

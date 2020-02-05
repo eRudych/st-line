@@ -10,11 +10,18 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
         <link rel="shortcut icon" href="{{ asset('images/favicon.ico') }}">
+
+        <link rel="canonical" href="https://getbootstrap.com/docs/4.4/examples/floating-labels/">
+
+        <link href="/docs/4.4/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
         <meta name="Keywords"
               content="Кенгурятник, Дуга, Кенгурин, Обвес, Передняя защита, Губа, Обводка, Ус, Усы, ARP(Турция), St-line, автоакссесуары,front bumper protection, rear bumper protection, sills, roof rails, chandeliers, stainless steel products, стлайн, ст-лайн, stline">
         <meta name="author" content="eliz">
     </head>
     <body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js">
+    </script>
     <script type="text/javascript">
         $(document).ready(function() {
             $("#locales").change(function () {
@@ -54,14 +61,13 @@
                     </div>
                 </nav>
             </div>
-<!--            <div class="col-md-1"></div>-->
             <div class="col-md-2">
                 <div class="input-group mb-3" style="margin-top:10px;">
                     <div class="input-group-prepend">
                         <label class="input-group-text" for="locales" th:text="#{lang.change}"></label>
                     </div>
                     <select class="custom-select" id="locales">
-                        <option selected th:text="#{lang.now}" ></option>
+                        <option value=""></option>
                         <option value="ru" th:text="#{lang.ru}"></option>
                         <option value="en" th:text="#{lang.eng}"></option>
                     </select>
@@ -101,13 +107,16 @@
                                 <a href="/st-line/index/#main" th:text="#{lang.main}" class="nav-link active"></a>
                             </li>
                             <li class="nav-item">
-                                <a href="/st-line/index/#about" th:text="#{lang.about}" class="nav-link active">О нас</a>
+                                <a href="/st-line/index/#about" th:text="#{lang.about}" class="nav-link active"></a>
                             </li>
                             <li class="nav-item">
-                                <a href="/st-line/index/#products" th:text="#{lang.products}" class="nav-link active">Продукция</a>
+                                <a href="/st-line/index/#products" th:text="#{lang.products}" class="nav-link active"></a>
                             </li>
                             <li class="nav-item">
-                                <a href="/st-line/news" th:text="#{lang.new}" class="nav-link active">Новости</a>
+                                <a href="/st-line/news" th:text="#{lang.new}" class="nav-link active"></a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/st-line/login" th:text="#{lang.orderOnline}" class="nav-link active"></a>
                             </li>
                         </ul>
                     </div>

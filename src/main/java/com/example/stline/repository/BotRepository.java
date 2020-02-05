@@ -7,5 +7,5 @@ public interface BotRepository extends BaseRepository {
     boolean remove(Long postId);
 
     Integer get(Long postId);
-
+    
 }

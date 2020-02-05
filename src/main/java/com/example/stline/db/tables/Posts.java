@@ -4,7 +4,6 @@
 package com.example.stline.db.tables;
 
 
-import com.example.stline.db.Indexes;
 import com.example.stline.db.Keys;
 import com.example.stline.db.Public;
 import com.example.stline.db.tables.records.PostsRecord;
@@ -17,7 +16,6 @@ import javax.annotation.Generated;
 
 import org.jooq.Field;
 import org.jooq.Identity;
-import org.jooq.Index;
 import org.jooq.Name;
 import org.jooq.Schema;
 import org.jooq.Table;
@@ -40,7 +38,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Posts extends TableImpl<PostsRecord> {
 
-    private static final long serialVersionUID = 337426729;
+    private static final long serialVersionUID = 1647719150;
 
     /**
      * The reference instance of <code>public.posts</code>
@@ -115,14 +113,6 @@ public class Posts extends TableImpl<PostsRecord> {
     @Override
     public Schema getSchema() {
         return Public.PUBLIC;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public List<Index> getIndexes() {
-        return Arrays.<Index>asList(Indexes.POSTS_PKEY);
     }
 
     /**

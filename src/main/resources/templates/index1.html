@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.4/examples/floating-labels/">
+
+    <!-- Bootstrap core CSS -->
+    <link href="/docs/4.4/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link th:href="@{/static/v2/css/app/app_style.css}" rel="stylesheet"/>
+
+
+</head>
+<body>
+    <div th:include="import/header"></div>
+    <div th:include="import/messageForm"></div>
+        <div class="container">
+            <div th:include="main/main"></div>
+            <div th:include="main/about"></div>
+            <div th:include="main/products"></div>
+        </div>
+    <div th:include="import/footer"></div>
+</body>
