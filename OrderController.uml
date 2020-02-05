@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>com.example.stline.controller.OrderController</OriginalElement>
+  <nodes>
+    <node x="394.0560064935064" y="1013.0">com.example.stline.repository.impl.UserRepositoryImpl</node>
+    <node x="1442.0560064935064" y="958.0">com.example.stline.service.impl.OrderServiceImpl</node>
+    <node x="335.6846153846154" y="1893.0">com.example.stline.service.impl.ProductServiceImpl</node>
+    <node x="611.7" y="1683.0">com.example.stline.repository.ProductRepository</node>
+    <node x="1586.8060064935064" y="726.0">com.example.stline.mapper.OrderMapper</node>
+    <node x="1238.3060064935064" y="738.0">com.example.stline.repository.OrderDetailsRepository</node>
+    <node x="183.45" y="1330.0">com.example.stline.dto.ProductDTO</node>
+    <node x="1691.8060064935064" y="0.0">com.example.stline.entity.Order</node>
+    <node x="949.0560064935064" y="1046.0">com.example.stline.controller.OrderController</node>
+    <node x="560.8060064935064" y="738.0">com.example.stline.service.UserService</node>
+    <node x="0.0" y="1904.0">com.example.stline.controller.ProductsController</node>
+    <node x="1839.508928571429" y="738.0">com.example.stline.repository.OrderRepository</node>
+    <node x="1438.59604978355" y="11.0">com.example.stline.dto.OrderDTO</node>
+    <node x="482.325" y="1319.0">com.example.stline.entity.Product</node>
+    <node x="731.15" y="1893.0">com.example.stline.repository.impl.ProductRepositoryImpl</node>
+    <node x="96.69999999999999" y="1683.0">com.example.stline.service.ProductService</node>
+    <node x="675.0560064935064" y="1013.0">com.example.stline.controller.UserController</node>
+    <node x="0.0" y="22.0">com.example.stline.dto.UserDTO</node>
+    <node x="389.7" y="1693.0">com.example.stline.mapper.ProductMapper</node>
+    <node x="97.0560064935064" y="1002.0">com.example.stline.service.impl.UserServiceImpl</node>
+    <node x="369.2589285714289" y="749.0">com.example.stline.repository.UserRepository</node>
+    <node x="1887.4310064935064" y="1013.0">com.example.stline.repository.impl.OrderRepositoryImpl</node>
+    <node x="79.0" y="726.0">com.example.stline.mapper.UserMapper</node>
+    <node x="1167.0560064935064" y="1013.0">com.example.stline.repository.impl.OrderDetailsRepositoryImpl</node>
+    <node x="874.0560064935064" y="694.0">com.example.stline.service.OrderService</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.example.stline.mapper.UserMapper" target="com.example.stline.dto.UserDTO">
+      <point x="0.0" y="-70.0" />
+      <point x="0.0" y="290.0" />
+    </edge>
+    <edge source="com.example.stline.controller.ProductsController" target="com.example.stline.entity.Product">
+      <point x="0.0" y="-114.0" />
+      <point x="112.5" y="1868.0" />
+      <point x="78.75" y="1868.0" />
+      <point x="78.75" y="1653.0" />
+      <point x="497.075" y="1653.0" />
+      <point x="-73.75" y="147.0" />
+    </edge>
+    <edge source="com.example.stline.repository.impl.OrderRepositoryImpl" target="com.example.stline.entity.Order">
+      <point x="54.75" y="-103.0" />
+      <point x="2051.681006493506" y="938.0" />
+      <point x="2034.3695887445888" y="938.0" />
+      <point x="2034.3695887445888" y="664.0" />
+      <point x="1874.7345779220777" y="664.0" />
+      <point x="84.42857142857144" y="312.0" />
+    </edge>
+    <edge source="com.example.stline.controller.ProductsController" target="com.example.stline.dto.ProductDTO">
+      <point x="-75.0" y="-114.0" />
+      <point x="37.5" y="1868.0" />
+      <point x="59.23461538461538" y="1868.0" />
+      <point x="59.23461538461538" y="1633.0" />
+      <point x="205.575" y="1633.0" />
+      <point x="-66.375" y="136.0" />
+    </edge>
+    <edge source="com.example.stline.service.impl.OrderServiceImpl" target="com.example.stline.service.OrderService">
+      <point x="-180.0" y="-158.0" />
+      <point x="1472.0560064935064" y="928.0" />
+      <point x="1061.5560064935064" y="928.0" />
+      <point x="75.0" y="102.0" />
+    </edge>
+    <edge source="com.example.stline.controller.UserController" target="com.example.stline.service.OrderService">
+      <point x="63.5" y="-103.0" />
+      <point x="865.5560064935064" y="938.0" />
+      <point x="911.5560064935064" y="938.0" />
+      <point x="-75.0" y="102.0" />
+    </edge>
+    <edge source="com.example.stline.service.OrderService" target="com.example.stline.entity.Order">
+      <point x="56.25" y="-102.0" />
+      <point x="1042.8060064935064" y="654.0" />
+      <point x="1705.877435064935" y="654.0" />
+      <point x="-84.42857142857144" y="312.0" />
+    </edge>
+    <edge source="com.example.stline.service.impl.UserServiceImpl" target="com.example.stline.mapper.UserMapper">
+      <point x="-92.33333333333326" y="-114.0" />
+      <point x="143.22267316017314" y="938.0" />
+      <point x="171.0" y="938.0" />
+      <point x="0.0" y="70.0" />
+    </edge>
+    <edge source="com.example.stline.mapper.OrderMapper" target="com.example.stline.entity.Order">
+      <point x="47.5" y="-70.0" />
+      <point x="1729.3060064935064" y="674.0" />
+      <point x="1762.1631493506493" y="674.0" />
+      <point x="-28.14285714285711" y="312.0" />
+    </edge>
+    <edge source="com.example.stline.service.impl.ProductServiceImpl" target="com.example.stline.mapper.ProductMapper">
+      <point x="0.0" y="-125.0" />
+      <point x="500.1846153846154" y="1868.0" />
+      <point x="490.2" y="1868.0" />
+      <point x="0.0" y="70.0" />
+    </edge>
+    <edge source="com.example.stline.repository.OrderRepository" target="com.example.stline.entity.Order">
+      <point x="0.0" y="-58.0" />
+      <point x="1917.508928571429" y="674.0" />
+      <point x="1846.5917207792209" y="674.0" />
+      <point x="56.285714285714334" y="312.0" />
+    </edge>
+    <edge source="com.example.stline.mapper.ProductMapper" target="com.example.stline.entity.Product">
+      <point x="50.25" y="-70.0" />
+      <point x="540.45" y="1663.0" />
+      <point x="556.075" y="1663.0" />
+      <point x="-14.75" y="147.0" />
+    </edge>
+    <edge source="com.example.stline.repository.impl.OrderRepositoryImpl" target="com.example.stline.repository.OrderRepository">
+      <point x="-54.75" y="-103.0" />
+      <point x="1942.1810064935064" y="938.0" />
+      <point x="1956.508928571429" y="938.0" />
+      <point x="39.0" y="58.0" />
+    </edge>
+    <edge source="com.example.stline.mapper.OrderMapper" target="com.example.stline.dto.OrderDTO">
+      <point x="-47.5" y="-70.0" />
+      <point x="1634.3060064935064" y="644.0" />
+      <point x="1602.7627164502167" y="644.0" />
+      <point x="65.66666666666663" y="301.0" />
+    </edge>
+    <edge source="com.example.stline.service.impl.OrderServiceImpl" target="com.example.stline.repository.OrderRepository">
+      <point x="180.0" y="-158.0" />
+      <point x="1832.0560064935064" y="938.0" />
+      <point x="1878.508928571429" y="938.0" />
+      <point x="-39.0" y="58.0" />
+    </edge>
+    <edge source="com.example.stline.repository.impl.UserRepositoryImpl" target="com.example.stline.repository.UserRepository">
+      <point x="0.0" y="-103.0" />
+      <point x="500.5560064935064" y="928.0" />
+      <point x="490.0089285714289" y="928.0" />
+      <point x="40.25" y="47.0" />
+    </edge>
+    <edge source="com.example.stline.service.impl.UserServiceImpl" target="com.example.stline.service.UserService">
+      <point x="92.33333333333326" y="-114.0" />
+      <point x="327.88933982683966" y="938.0" />
+      <point x="620.0560064935064" y="938.0" />
+      <point x="-59.25" y="58.0" />
+    </edge>
+    <edge source="com.example.stline.service.impl.OrderServiceImpl" target="com.example.stline.dto.OrderDTO">
+      <point x="-60.0" y="-158.0" />
+      <point x="1592.0560064935064" y="938.0" />
+      <point x="1547.9166666666665" y="938.0" />
+      <point x="1547.9166666666665" y="644.0" />
+      <point x="1537.09604978355" y="644.0" />
+      <point x="0.0" y="301.0" />
+    </edge>
+    <edge source="com.example.stline.service.impl.OrderServiceImpl" target="com.example.stline.repository.OrderDetailsRepository">
+      <point x="-120.0" y="-158.0" />
+      <point x="1532.0560064935064" y="918.0" />
+      <point x="1407.0560064935064" y="918.0" />
+      <point x="56.25" y="58.0" />
+    </edge>
+    <edge source="com.example.stline.controller.UserController" target="com.example.stline.service.UserService">
+      <point x="-63.5" y="-103.0" />
+      <point x="59.25" y="58.0" />
+    </edge>
+    <edge source="com.example.stline.service.impl.ProductServiceImpl" target="com.example.stline.repository.ProductRepository">
+      <point x="131.60000000000002" y="-125.0" />
+      <point x="631.7846153846154" y="1868.0" />
+      <point x="673.7" y="1868.0" />
+      <point x="-62.0" y="80.0" />
+    </edge>
+    <edge source="com.example.stline.service.impl.OrderServiceImpl" target="com.example.stline.mapper.OrderMapper">
+      <point x="0.0" y="-158.0" />
+      <point x="1652.0560064935064" y="938.0" />
+      <point x="1681.8060064935064" y="938.0" />
+      <point x="0.0" y="70.0" />
+    </edge>
+    <edge source="com.example.stline.repository.impl.ProductRepositoryImpl" target="com.example.stline.repository.ProductRepository">
+      <point x="-62.0" y="-125.0" />
+      <point x="793.15" y="1868.0" />
+      <point x="797.7" y="1868.0" />
+      <point x="62.0" y="80.0" />
+    </edge>
+    <edge source="com.example.stline.controller.OrderController" target="com.example.stline.service.OrderService">
+      <point x="-49.5" y="-70.0" />
+      <point x="998.5560064935064" y="938.0" />
+      <point x="986.5560064935064" y="938.0" />
+      <point x="0.0" y="102.0" />
+    </edge>
+    <edge source="com.example.stline.service.impl.ProductServiceImpl" target="com.example.stline.service.ProductService">
+      <point x="-131.60000000000002" y="-125.0" />
+      <point x="368.5846153846154" y="1868.0" />
+      <point x="300.7" y="1868.0" />
+      <point x="68.0" y="80.0" />
+    </edge>
+    <edge source="com.example.stline.service.impl.UserServiceImpl" target="com.example.stline.repository.UserRepository">
+      <point x="0.0" y="-114.0" />
+      <point x="235.5560064935064" y="928.0" />
+      <point x="409.5089285714289" y="928.0" />
+      <point x="-40.25" y="47.0" />
+    </edge>
+    <edge source="com.example.stline.service.OrderService" target="com.example.stline.dto.OrderDTO">
+      <point x="-56.25" y="-102.0" />
+      <point x="930.3060064935064" y="644.0" />
+      <point x="1471.4293831168834" y="644.0" />
+      <point x="-65.66666666666669" y="301.0" />
+    </edge>
+    <edge source="com.example.stline.repository.impl.ProductRepositoryImpl" target="com.example.stline.entity.Product">
+      <point x="62.0" y="-125.0" />
+      <point x="917.15" y="1868.0" />
+      <point x="891.4" y="1868.0" />
+      <point x="891.4" y="1653.0" />
+      <point x="644.575" y="1653.0" />
+      <point x="73.75" y="147.0" />
+    </edge>
+    <edge source="com.example.stline.service.ProductService" target="com.example.stline.dto.ProductDTO">
+      <point x="-68.0" y="-80.0" />
+      <point x="164.7" y="1643.0" />
+      <point x="249.825" y="1643.0" />
+      <point x="-22.125" y="136.0" />
+    </edge>
+    <edge source="com.example.stline.mapper.ProductMapper" target="com.example.stline.dto.ProductDTO">
+      <point x="-50.25" y="-70.0" />
+      <point x="439.95" y="1633.0" />
+      <point x="338.325" y="1633.0" />
+      <point x="66.375" y="136.0" />
+    </edge>
+    <edge source="com.example.stline.controller.OrderController" target="com.example.stline.entity.Order">
+      <point x="49.5" y="-70.0" />
+      <point x="1097.5560064935064" y="938.0" />
+      <point x="1109.5560064935064" y="938.0" />
+      <point x="1109.5560064935064" y="664.0" />
+      <point x="1734.0202922077922" y="664.0" />
+      <point x="-56.28571428571422" y="312.0" />
+    </edge>
+    <edge source="com.example.stline.service.ProductService" target="com.example.stline.entity.Product">
+      <point x="68.0" y="-80.0" />
+      <point x="300.7" y="1663.0" />
+      <point x="526.575" y="1663.0" />
+      <point x="-44.25" y="147.0" />
+    </edge>
+    <edge source="com.example.stline.repository.ProductRepository" target="com.example.stline.entity.Product">
+      <point x="0.0" y="-80.0" />
+      <point x="735.7" y="1663.0" />
+      <point x="615.075" y="1663.0" />
+      <point x="44.25" y="147.0" />
+    </edge>
+    <edge source="com.example.stline.service.impl.ProductServiceImpl" target="com.example.stline.dto.ProductDTO">
+      <point x="-65.80000000000007" y="-125.0" />
+      <point x="434.38461538461536" y="1868.0" />
+      <point x="379.2" y="1868.0" />
+      <point x="379.2" y="1643.0" />
+      <point x="294.075" y="1643.0" />
+      <point x="22.125" y="136.0" />
+    </edge>
+    <edge source="com.example.stline.service.impl.ProductServiceImpl" target="com.example.stline.entity.Product">
+      <point x="65.79999999999995" y="-125.0" />
+      <point x="565.9846153846154" y="1868.0" />
+      <point x="601.2" y="1868.0" />
+      <point x="601.2" y="1663.0" />
+      <point x="585.575" y="1663.0" />
+      <point x="14.75" y="147.0" />
+    </edge>
+    <edge source="com.example.stline.repository.impl.OrderDetailsRepositoryImpl" target="com.example.stline.repository.OrderDetailsRepository">
+      <point x="0.0" y="-103.0" />
+      <point x="-56.25" y="58.0" />
+    </edge>
+    <edge source="com.example.stline.controller.ProductsController" target="com.example.stline.service.ProductService">
+      <point x="75.0" y="-114.0" />
+      <point x="187.5" y="1868.0" />
+      <point x="164.7" y="1868.0" />
+      <point x="-68.0" y="80.0" />
+    </edge>
+    <edge source="com.example.stline.service.impl.OrderServiceImpl" target="com.example.stline.entity.Order">
+      <point x="119.99999999999994" y="-158.0" />
+      <point x="1772.0560064935064" y="938.0" />
+      <point x="1821.996212121212" y="938.0" />
+      <point x="1821.996212121212" y="674.0" />
+      <point x="1818.4488636363635" y="674.0" />
+      <point x="28.14285714285711" y="312.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="515.5" y="314.5" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Constructors</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

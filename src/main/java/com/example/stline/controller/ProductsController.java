@@ -22,7 +22,7 @@ public class ProductsController {
 
     @PostMapping(consumes = {MediaType.APPLICATION_JSON_VALUE})
     Product create(@RequestBody ProductDTO productDTO) {
-        log.info(productDTO.toString());
+//        log.info(productDTO.toString());
         return service.create(productDTO);
     }
 
